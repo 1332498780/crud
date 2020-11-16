@@ -6,7 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.cn.tfe.entity.User;
-import com.cn.tfe.service.UserService;
+import com.cn.tfe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -20,7 +20,7 @@ import java.lang.reflect.Method;
 public class AuthenticationInterceptor implements HandlerInterceptor{
 
     @Autowired
-    UserService userService;
+    UserRepository userRepository;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) throws Exception {
@@ -53,7 +53,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
                 } catch (JWTDecodeException j) {
                     throw new RuntimeException("401");
                 }
-                User user = userService.findUserById(userId);
+                User user = userRepository.findUserById(userId);
                 if (user == null) {
                     throw new RuntimeException("用户不存在，请重新登录");
                 }

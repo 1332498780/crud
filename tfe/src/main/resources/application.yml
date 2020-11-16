@@ -3,15 +3,6 @@ server:
   servlet:
     context-path: /hzy
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC
-    username: root
-    password: root
-    type: com.alibaba.druid.pool.DruidDataSource
-  jpa:
-    show-sql: true
-#  data:
-#    mongodb:
-#      database: testdb
-#      host: localhost
-#      port: 27017
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/testdb

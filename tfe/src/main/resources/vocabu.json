@@ -1,0 +1,46 @@
+{
+  "url": "url",
+  "title": "title",
+  "description": "描述",
+  "word": "pancake",
+  "transRes": [
+    {
+      "dst": ["煎","饼"],
+      "phonetic": ["jian","bing"],
+      "eDict": "a thin flat round cake made from a mixture of flour",
+      "volumn_url": "发音链接",
+      "strokes": ["http://xxx.img","http://xxx.img1"]
+    },
+    {
+      "dst": ["粉","饼"],
+      "phonetic": ["fen","bing"],
+      "eDict": "thick make-up for the face, used especially in the theatre",
+      "volumn_url": "发音链接"
+    }
+  ],
+  "wordRes": [
+    {
+      "dst": "煎饼侠",
+      "phonetic": ["jian","bing","xia"],
+      "eDict": "pancake man"
+    },
+    {
+      "dst": "煎饼果子",
+      "phonetic": ["jian","bing","guo","zi"],
+      "eDict": "pancake rolled with crisp fritter"
+    }
+  ],
+  "sentenceRes": [
+    {
+      "dst": "这个煎饼真好吃",
+      "phonetic": ["zhe","ge","jian","bing","zhen","hao","chi"],
+      "eDict": "This pancake is delicious"
+    },
+    {
+      "dst": "我是煎饼侠",
+      "phonetic": ["wo","shi","jian","bing","xia"],
+      "eDict": "I am pancake man"
+    }
+  ],
+  "advLinks": ["http://","http://"]
+}

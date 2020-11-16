@@ -3,7 +3,7 @@ package com.cn.tfe.controller;
 import com.cn.tfe.entity.User;
 import com.cn.tfe.exception.CustomException;
 import com.cn.tfe.filter.UserLoginToken;
-import com.cn.tfe.service.UserService;
+import com.cn.tfe.repository.UserRepository;
 import com.cn.tfe.util.JwtUtil;
 import com.cn.tfe.util.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,11 @@ import java.util.Map;
 public class LoginController {
 
     @Autowired
-    UserService userService;
+    UserRepository userRepository;
 
     @PostMapping("/login")
     public ResponseData<String> login(@RequestBody User user){
-        User dbUser = userService.findUserByUsername(user.getUsername());
+        User dbUser = userRepository.findUsersByUsername(user.getUsername());
         Map<String,String> map = new HashMap();
         if(dbUser!=null){
             if(dbUser.getPassword().equals(user.getPassword())){
