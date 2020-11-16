@@ -42,6 +42,6 @@ public class LoginController {
     @UserLoginToken
     @GetMapping("/getMessage")
     public ResponseData<User> getMessage(){
-        return ResponseData.of(new User(1,"zs","123"));
+        return ResponseData.of(new User());
     }
 }
