@@ -1,10 +1,20 @@
 package com.cn.tfe.entity;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.List;
 
 @Data
+@Builder
+@ToString
 @Document(collection = "vocabulary")
 public class Vocabu {
 
@@ -17,21 +27,13 @@ public class Vocabu {
 
     private String description;
 
-    //英语单词
-    private String word;
+    @Indexed(unique = true)
+    private String word; //英语单词
 
-    //英文释义
-    private String eDict;
+    private List<TransRes> transRes; //翻译结果集
 
-    //汉语翻译
-    private String dst;
+    private List<CommonRes> wordRes; //词组结果集
 
-    //汉语拼音
-    private String phonetic;
-
-
-
-
-
+    private List<CommonRes> sentenceRes; //例句结果集
 
 }

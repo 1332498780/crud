@@ -6,6 +6,8 @@ import com.cn.tfe.filter.UserLoginToken;
 import com.cn.tfe.repository.UserRepository;
 import com.cn.tfe.util.JwtUtil;
 import com.cn.tfe.util.ResponseData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,8 @@ import java.util.Map;
 
 @RestController
 public class LoginController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     UserRepository userRepository;

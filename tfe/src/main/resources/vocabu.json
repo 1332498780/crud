@@ -8,14 +8,14 @@
       "dst": ["煎","饼"],
       "phonetic": ["jian","bing"],
       "eDict": "a thin flat round cake made from a mixture of flour",
-      "volumn_url": "发音链接",
+      "volumnUrl": "发音链接",
       "strokes": ["http://xxx.img","http://xxx.img1"]
     },
     {
       "dst": ["粉","饼"],
       "phonetic": ["fen","bing"],
       "eDict": "thick make-up for the face, used especially in the theatre",
-      "volumn_url": "发音链接"
+      "volumnUrl": "发音链接"
     }
   ],
   "wordRes": [
