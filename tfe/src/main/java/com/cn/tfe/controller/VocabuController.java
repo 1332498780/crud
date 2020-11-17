@@ -34,14 +34,9 @@ public class VocabuController {
             return ResponsePage.<Vocabu>page(pageData);
         }
         VocabuFilterParam param = requestPageData.getData();
-        ExampleMatcher matcher = ExampleMatcher.matching();
-        if(!StringUtils.isEmpty(param.getWord())){
-            matcher.withMatcher("word",ExampleMatcher.GenericPropertyMatchers.contains());
-        }
-        if(!StringUtils.isEmpty(param.getDst())){
-            matcher.withMatcher("dst",ExampleMatcher.GenericPropertyMatchers.contains());
-        }
-        return ResponsePage.<Vocabu>page(null);
+        String word = param.getWord();
+        String dst = param.getDst();
+        return  vocabuMongoRepository.findByWordAndDict(word,dst,requestPageData.getPage(),requestPageData.getSize());
     }
 
 }
