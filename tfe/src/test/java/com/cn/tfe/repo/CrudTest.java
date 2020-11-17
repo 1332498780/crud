@@ -31,11 +31,11 @@ public class CrudTest {
     @Test
     public void testInsert(){
         TransRes tr1 = TransRes.builder()
-                .dst(Arrays.asList(new String[]{"煎","饼"}))
+                .dst("煎饼")
                 .phonetic(Arrays.asList(new String[]{"jian","bing"}))
-                .volumnUrl("http://www.img.com")
                 .eDict("a thin flat round cake made from a mixture of flour")
                 .strokes(Arrays.asList(new String[]{"http://www.audio1.com","http://www.audio2.com"}))
+                .volumnUrl("http://www.img.com")
                 .build();
         List<TransRes> transList = new ArrayList();
         transList.add(tr1);
@@ -57,10 +57,10 @@ public class CrudTest {
         senList.add(cr2);
 
         Vocabu vo =  Vocabu.builder()
-                .id(2)
+                .id(1)
                 .title("dog title")
                 .description("dog desc")
-                .word("dog")
+                .word("dog1")
                 .transRes(transList)
                 .wordRes(wordList)
                 .sentenceRes(senList)

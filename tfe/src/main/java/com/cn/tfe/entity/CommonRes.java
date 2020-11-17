@@ -2,11 +2,12 @@ package com.cn.tfe.entity;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
 @Data
-@Builder
+@SuperBuilder
 public class CommonRes {
 
     private String dst; //汉语翻译
