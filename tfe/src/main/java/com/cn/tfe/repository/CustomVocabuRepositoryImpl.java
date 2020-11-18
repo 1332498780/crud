@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
 
@@ -17,7 +18,6 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
 
     @Override
     public ResponsePage<List<Vocabu>> findByWordAndDict(String word, String dst, int page, int size) {
-        dst = "/.*"+dst+".*/";
         long skip = 0l;
         if(page > 0){
             skip = size*page;
@@ -27,10 +27,11 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
             criteria = Criteria.where("word").is(word);
         }
         if(!StringUtils.isEmpty(dst)){
+            dst = ".*"+dst+".*";
             if(criteria == null){
-                criteria = Criteria.where("\"transRes.dst\"").regex(dst);
+                criteria = Criteria.where("transRes.dst").is(dst);
             }else{
-                criteria = criteria.and("\"transRes.dst\"").regex(dst);
+                criteria = criteria.and("transRes.dst").regex(Pattern.compile(dst));
             }
         }
         Query queryCount = new Query(criteria);

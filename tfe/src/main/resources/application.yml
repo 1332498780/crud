@@ -7,3 +7,11 @@ spring:
     mongodb:
       uri: mongodb://127.0.0.1:27017/testdb
       auto-index-creation: true
+logging:
+  level:
+      dev: debug
+      org:
+        springframework:
+          data:
+            mongodb:
+              core: DEBUG

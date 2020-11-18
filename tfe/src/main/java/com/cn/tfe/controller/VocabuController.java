@@ -1,6 +1,7 @@
 package com.cn.tfe.controller;
 
 import com.cn.tfe.entity.Vocabu;
+import com.cn.tfe.exception.CustomException;
 import com.cn.tfe.query.VocabuFilterParam;
 import com.cn.tfe.repository.VocabuMongoRepository;
 import com.cn.tfe.util.RequestPageData;
@@ -11,10 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class VocabuController {
     private static final Logger log = LoggerFactory.getLogger(VocabuController.class);
 
     @Autowired
-    private VocabuMongoRepository vocabuMongoRepository;
+    VocabuMongoRepository vocabuMongoRepository;
 
     @PostMapping("/page")
     public ResponseData<List<Vocabu>> getPageList(@RequestBody RequestPageData<VocabuFilterParam> requestPageData){
@@ -37,6 +35,37 @@ public class VocabuController {
         String word = param.getWord();
         String dst = param.getDst();
         return  vocabuMongoRepository.findByWordAndDict(word,dst,requestPageData.getPage(),requestPageData.getSize());
+    }
+
+    @PostMapping("/add")
+    public ResponseData addVocabu(@RequestBody Vocabu vocabu){
+        Vocabu savedVocabu = vocabuMongoRepository.insert(vocabu);
+        if(savedVocabu != null && savedVocabu.getId()!=null){
+            return ResponseData.SUCCESS;
+        }
+        throw new CustomException("新增单词失败");
+    }
+
+    @GetMapping("/del/{id}")
+    public ResponseData delVocabu(@PathVariable Integer id){
+        Boolean isExisted = vocabuMongoRepository.existsById(id);
+        if(isExisted){
+            vocabuMongoRepository.deleteById(id);
+            return ResponseData.SUCCESS;
+        }
+        throw new CustomException("删除单词失败");
+    }
+
+    @PostMapping("/update/{id}")
+    public ResponseData updateVocabu(@PathVariable Integer id,@RequestBody Vocabu vocabu){
+        Boolean isExisted = vocabuMongoRepository.existsById(id);
+        if(isExisted){
+            Vocabu savedVocabu = vocabuMongoRepository.save(vocabu);
+            if(savedVocabu!=null){
+                return ResponseData.SUCCESS;
+            }
+        }
+        throw new CustomException("更新单词失败");
     }
 
 }
