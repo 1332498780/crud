@@ -57,7 +57,7 @@ public class CrudTest {
         senList.add(cr2);
 
         Vocabu vo =  Vocabu.builder()
-                .id(1)
+                .id("1")
                 .title("dog title")
                 .description("dog desc")
                 .word("dog1")

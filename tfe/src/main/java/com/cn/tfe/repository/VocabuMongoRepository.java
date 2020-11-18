@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface VocabuMongoRepository extends MongoRepository<Vocabu,Integer>,CustomVocabuRepository {
+public interface VocabuMongoRepository extends MongoRepository<Vocabu,String>,CustomVocabuRepository {
 
 //    @Query("{word: $0,'transRes.dst': $1}")
 

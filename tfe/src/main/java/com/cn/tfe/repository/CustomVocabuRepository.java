@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface CustomVocabuRepository {
     ResponsePage<List<Vocabu>> findByWordAndDict(String word, String dst, int page, int size);
+
+    void updateVocabu(String id,Vocabu vocabu);
 }

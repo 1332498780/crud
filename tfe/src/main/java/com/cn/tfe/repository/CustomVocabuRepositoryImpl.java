@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -39,5 +41,12 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
         long total = mongo.count(queryCount,Vocabu.class);
         List<Vocabu> data = mongo.find(queryData,Vocabu.class);
         return ResponsePage.page(data,total,size);
+    }
+
+    @Override
+    public void updateVocabu(String id, Vocabu vocabu) {
+//        vocabu.setId(id);
+//        Update u = new Update();
+//        mongo.updateFirst()
     }
 }
