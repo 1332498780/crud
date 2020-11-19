@@ -7,6 +7,10 @@ spring:
     mongodb:
       uri: mongodb://127.0.0.1:27017/testdb
       auto-index-creation: true
+  resources:
+    static-locations: file:D://upload
+  mvc:
+    static-path-pattern: /static/**
 logging:
   level:
       dev: debug
