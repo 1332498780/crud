@@ -4,7 +4,7 @@ import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class DemoDataListener<T,ID> extends AnalysisEventListener<T> {
     /**
      * 假设这个是一个DAO，当然有业务逻辑这个也可以是一个service。当然如果不用存储这个对象没用。
      */
-    private Repository<T,ID> repository;
+    private MongoRepository<T,ID> repository;
 
     public DemoDataListener() {
         // 这里是demo，所以随便new一个。实际使用如果到了spring,请使用下面的有参构造函数
@@ -31,7 +31,7 @@ public class DemoDataListener<T,ID> extends AnalysisEventListener<T> {
      *
      * @param repository
      */
-    public DemoDataListener(Repository repository) {
+    public DemoDataListener(MongoRepository repository) {
         this.repository = repository;
     }
 
@@ -71,7 +71,7 @@ public class DemoDataListener<T,ID> extends AnalysisEventListener<T> {
      */
     private void saveData() {
         LOGGER.info("{}条数据，开始存储数据库！", list.size());
-//        demoDAO.save(list);
+        repository.insert(list);
         LOGGER.info("存储数据库成功！");
     }
 }

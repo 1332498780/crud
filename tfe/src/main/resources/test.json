@@ -1,0 +1,202 @@
+{
+  "lang":"1",
+  "word_result":{
+    "edict":{
+      "item":[
+        {
+          "tr_group":[
+            {
+              "tr":[
+                "a member of the genus Canis (probably descended from the common wolf) that has been domesticated by man since prehistoric times",
+                "occurs in many breeds"
+              ],
+              "example":[
+                "the dog barked all night"
+              ],
+              "similar_word":[
+                "domestic dog",
+                "Canis familiaris"
+              ]
+            },
+            {
+              "tr":[
+                "metal supports for logs in a fireplace"
+              ],
+              "example":[
+                "the andirons were too hot to touch"
+              ],
+              "similar_word":[
+                "andiron",
+                "firedog",
+                "dog-iron"
+              ]
+            },
+            {
+              "tr":[
+                "a hinged catch that fits into a notch of a ratchet to move a wheel forward or prevent it from moving backward"
+              ],
+              "example":{
+              },
+              "similar_word":[
+                "pawl",
+                "detent",
+                "click"
+              ]
+            },
+            {
+              "tr":[
+                "a smooth-textured sausage of minced beef or pork usually smoked",
+                "often served on a bread roll"
+              ],
+              "example":{
+              },
+              "similar_word":[
+                "frank",
+                "frankfurter",
+                "hotdog",
+                "hot dog",
+                "wiener",
+                "wienerwurst",
+                "weenie"
+              ]
+            },
+            {
+              "tr":[
+                "someone who is morally reprehensible"
+              ],
+              "example":[
+                "you dirty dog"
+              ],
+              "similar_word":[
+                "cad",
+                "bounder",
+                "blackguard",
+                "hound",
+                "heel"
+              ]
+            },
+            {
+              "tr":[
+                "informal term for a man"
+              ],
+              "example":[
+                "you lucky dog"
+              ],
+              "similar_word":{
+              }
+            },
+            {
+              "tr":[
+                "a dull unattractive unpleasant girl or woman"
+              ],
+              "example":[
+                "she got a reputation as a frump",
+                "she's a real dog"
+              ],
+              "similar_word":[
+                "frump"
+              ]
+            }
+          ],
+          "pos":"noun"
+        },
+        {
+          "tr_group":[
+            {
+              "tr":[
+                "go after with the intent to catch"
+              ],
+              "example":[
+                "The policeman chased the mugger down the alley",
+                "the dog chased the rabbit"
+              ],
+              "similar_word":[
+                "chase",
+                "chase after",
+                "trail",
+                "tail",
+                "tag",
+                "give chase",
+                "go after",
+                "track"
+              ]
+            }
+          ],
+          "pos":"verb"
+        }
+      ],
+      "word":"dog"
+    },
+    "zdict":"",
+    "simple_means":{
+      "word_name":"dog",
+      "from":"original",
+      "word_means":[
+        "狗",
+        "犬",
+        "公狗",
+        "公狐",
+        "公狼",
+        "赛狗",
+        "困扰，折磨，纠缠",
+        "跟踪",
+        "尾随"
+      ],
+      "exchange":{
+        "word_third":[
+          "dogs"
+        ],
+        "word_ing":[
+          "dogging"
+        ],
+        "word_done":[
+          "dogged"
+        ],
+        "word_pl":[
+          "dogs"
+        ],
+        "word_past":[
+          "dogged"
+        ]
+      },
+      "tags":{
+        "core":[
+          "高考",
+          "CET4",
+          "考研"
+        ],
+        "other":[
+          "BEC"
+        ]
+      },
+      "symbols":[
+        {
+          "ph_en":"dɒɡ",
+          "ph_am":"dɔːɡ",
+          "parts":[
+            {
+              "part":"n.",
+              "means":[
+                "狗",
+                "犬",
+                "公狗",
+                "公狐",
+                "公狼",
+                "赛狗"
+              ]
+            },
+            {
+              "part":"v.",
+              "means":[
+                "(长期)困扰，折磨，纠缠",
+                "跟踪",
+                "尾随"
+              ]
+            }
+          ],
+          "ph_other":""
+        }
+      ]
+    }
+  }
+}

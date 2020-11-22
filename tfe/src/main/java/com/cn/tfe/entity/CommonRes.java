@@ -1,9 +1,6 @@
 package com.cn.tfe.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
@@ -12,11 +9,14 @@ import java.util.List;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class CommonRes {
 
     private String dst; //汉语翻译
 
-    private List<String> phonetic; //汉语拼音
+    private String phonetic; //汉语拼音
 
-    private String eDict; //英文释义
+    private String dstTts; //汉语发音
+
+    private String word; //英文
 }

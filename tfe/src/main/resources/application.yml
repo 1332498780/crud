@@ -19,3 +19,6 @@ logging:
           data:
             mongodb:
               core: DEBUG
+baidu:
+  appid: 20201103000607261
+  securityKey: 26HE7Mq0AM_oITG01z_n
