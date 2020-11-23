@@ -255,13 +255,13 @@ public class VocabuController {
         return builder.toString();
     }
     @PostMapping("/upload")
-    public ResponseData uploadFile(@RequestBody MultipartFile multipartFile) throws IOException {
+    public ResponseData uploadFile(@RequestPart("file") MultipartFile multipartFile) throws IOException {
         String fileName = multipartFile.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf('.')+1);
         if(!suffix.equals("xls") && !suffix.equals("xlsx")) {
             throw new CustomException("文件格式有误，请使用xls/xlsx格式文件");
         }
-        EasyExcel.read(multipartFile.getInputStream(),VocabuDto.class,new DemoDataListener()).sheet().doRead();
+        EasyExcel.read(multipartFile.getInputStream(),VocabuDto.class,new DemoDataListener<Vocabu,VocabuDto,String>(vocabuMongoRepository)).sheet().doRead();
         return ResponseData.SUCCESS;
     }
 

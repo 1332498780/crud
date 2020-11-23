@@ -4,12 +4,13 @@ import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DemoDataListener<T,ID> extends AnalysisEventListener<T> {
+public class DemoDataListener<T,DTO,ID> extends AnalysisEventListener<T> {
     private static final Logger LOGGER = LoggerFactory.getLogger(DemoDataListener.class);
     /**
      * 每隔5条存储数据库，实际使用中可以3000条，然后清理list ，方便内存回收
@@ -20,6 +21,8 @@ public class DemoDataListener<T,ID> extends AnalysisEventListener<T> {
      * 假设这个是一个DAO，当然有业务逻辑这个也可以是一个service。当然如果不用存储这个对象没用。
      */
     private MongoRepository<T,ID> repository;
+
+    private Class<DTO> dtoClass;
 
     public DemoDataListener() {
         // 这里是demo，所以随便new一个。实际使用如果到了spring,请使用下面的有参构造函数
@@ -45,13 +48,14 @@ public class DemoDataListener<T,ID> extends AnalysisEventListener<T> {
     @Override
     public void invoke(T data, AnalysisContext context) {
         LOGGER.info("解析到一条数据:{}", data.toString());
-        list.add(data);
-        // 达到BATCH_COUNT了，需要去存储一次数据库，防止数据几万条数据在内存，容易OOM
-        if (list.size() >= BATCH_COUNT) {
-            saveData();
-            // 存储完成清理 list
-            list.clear();
-        }
+//            BeanUtils.copyProperties(data,aim);
+            list.add(data);
+            // 达到BATCH_COUNT了，需要去存储一次数据库，防止数据几万条数据在内存，容易OOM
+            if (list.size() >= BATCH_COUNT) {
+                saveData();
+                // 存储完成清理 list
+                list.clear();
+            }
     }
 
     /**
