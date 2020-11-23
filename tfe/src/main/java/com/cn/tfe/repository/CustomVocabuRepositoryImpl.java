@@ -31,7 +31,7 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
         if(!StringUtils.isEmpty(dst)){
             dst = ".*"+dst+".*";
             if(criteria == null){
-                criteria = Criteria.where("transRes.dst").is(dst);
+                criteria = Criteria.where("transRes.dst").regex(Pattern.compile(dst));
             }else{
                 criteria = criteria.and("transRes.dst").regex(Pattern.compile(dst));
             }
@@ -41,6 +41,14 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
         long total = mongo.count(queryCount,Vocabu.class);
         List<Vocabu> data = mongo.find(queryData,Vocabu.class);
         return ResponsePage.page(data,total,size);
+    }
+
+    @Override
+    public List<Vocabu> findByExampleWord(String word){
+        String likeWord = ".*"+word+".*";
+        Criteria criteria = Criteria.where("word").ne(word).and("similarRes.word").regex(Pattern.compile(likeWord));
+        List<Vocabu> data = mongo.find(new Query(criteria),Vocabu.class);
+        return data;
     }
 
     @Override

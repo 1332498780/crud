@@ -18,6 +18,8 @@ public class RequestPageData<T> {
     public PageRequest pgData(){
         if(page<0)
             page = 0;
+        if(size == 0)
+            size = 10;
         if(sort == null)
             return PageRequest.of(page,size);
         org.springframework.data.domain.Sort.Direction direction

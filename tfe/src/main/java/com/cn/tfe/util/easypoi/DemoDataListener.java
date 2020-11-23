@@ -7,10 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DemoDataListener<T,DTO,ID> extends AnalysisEventListener<T> {
+public class DemoDataListener<T,DTO,ID> extends AnalysisEventListener<DTO> {
     private static final Logger LOGGER = LoggerFactory.getLogger(DemoDataListener.class);
     /**
      * 每隔5条存储数据库，实际使用中可以3000条，然后清理list ，方便内存回收
@@ -22,7 +23,7 @@ public class DemoDataListener<T,DTO,ID> extends AnalysisEventListener<T> {
      */
     private MongoRepository<T,ID> repository;
 
-    private Class<DTO> dtoClass;
+    private Class<T> tClass;
 
     public DemoDataListener() {
         // 这里是demo，所以随便new一个。实际使用如果到了spring,请使用下面的有参构造函数
@@ -34,8 +35,9 @@ public class DemoDataListener<T,DTO,ID> extends AnalysisEventListener<T> {
      *
      * @param repository
      */
-    public DemoDataListener(MongoRepository repository) {
+    public DemoDataListener(MongoRepository repository,Class<T> tClass) {
         this.repository = repository;
+        this.tClass = tClass;
     }
 
     /**
@@ -46,16 +48,23 @@ public class DemoDataListener<T,DTO,ID> extends AnalysisEventListener<T> {
      * @param context
      */
     @Override
-    public void invoke(T data, AnalysisContext context) {
+    public void invoke(DTO data, AnalysisContext context) {
         LOGGER.info("解析到一条数据:{}", data.toString());
-//            BeanUtils.copyProperties(data,aim);
-            list.add(data);
+        try {
+            T tObj = this.tClass.newInstance();
+            BeanUtils.copyProperties(data,tObj);
+            list.add(tObj);
             // 达到BATCH_COUNT了，需要去存储一次数据库，防止数据几万条数据在内存，容易OOM
             if (list.size() >= BATCH_COUNT) {
                 saveData();
                 // 存储完成清理 list
                 list.clear();
             }
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

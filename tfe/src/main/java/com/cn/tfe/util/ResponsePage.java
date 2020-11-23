@@ -20,7 +20,7 @@ public class ResponsePage<T> extends ResponseData<T>{
     private long totalPage;
 
     @Builder.Default()
-    private int pageSize = 10;
+    private static int pageSize = 10;
 
 
     public static <T> ResponsePage<List<T>> page(List<T> data,long total,int pageSize){
@@ -30,6 +30,8 @@ public class ResponsePage<T> extends ResponseData<T>{
                     .total(0)
                     .totalPage(0)
                     .build();
+        if(pageSize<=0)
+            pageSize = ResponsePage.pageSize;
         long totalPage = total%pageSize == 0? total/pageSize : total/pageSize+1;
         return ResponsePage.<List<T>>builder()
                 .data(data)

@@ -97,6 +97,21 @@ public class VocabuController {
         throw new CustomException("不存在的id");
     }
 
+    @GetMapping("/getAddition/{id}")
+    public ResponseData<Vocabu> getVocabuAddition(@PathVariable String id){
+        Optional<Vocabu> option = vocabuMongoRepository.findById(id);
+        if(option.isPresent()){
+            Vocabu vocabu = option.get();
+            String word = vocabu.getWord();
+            List<Vocabu> res = vocabuMongoRepository.findByExampleWord(word);
+            for(Vocabu v:res){
+                vocabu.getSimilarRes().addAll(v.getSimilarRes());
+            }
+            return ResponseData.of(vocabu);
+        }
+        throw new CustomException("不存在的id");
+    }
+
     @PostMapping("/update/{id}")
     public ResponseData updateVocabu(@PathVariable String id,@RequestBody Vocabu vocabu){
         Boolean isExisted = vocabuMongoRepository.existsById(id);
@@ -261,7 +276,7 @@ public class VocabuController {
         if(!suffix.equals("xls") && !suffix.equals("xlsx")) {
             throw new CustomException("文件格式有误，请使用xls/xlsx格式文件");
         }
-        EasyExcel.read(multipartFile.getInputStream(),VocabuDto.class,new DemoDataListener<Vocabu,VocabuDto,String>(vocabuMongoRepository)).sheet().doRead();
+        EasyExcel.read(multipartFile.getInputStream(),VocabuDto.class,new DemoDataListener<Vocabu,VocabuDto,String>(vocabuMongoRepository,Vocabu.class)).sheet().doRead();
         return ResponseData.SUCCESS;
     }
 

@@ -9,5 +9,7 @@ import java.util.List;
 public interface CustomVocabuRepository {
     ResponsePage<List<Vocabu>> findByWordAndDict(String word, String dst, int page, int size);
 
+    List<Vocabu> findByExampleWord(String word);
+
     void updateVocabu(String id,Vocabu vocabu);
 }
