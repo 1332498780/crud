@@ -26,3 +26,10 @@ logging:
 baidu:
   appid: 20201103000607261
   securityKey: 26HE7Mq0AM_oITG01z_n
+
+custom-config:
+  thread:
+    core-size: 10
+    max-pool-size: 20
+    queue-capacity: 100
+    keep-alive-seconds: 60
