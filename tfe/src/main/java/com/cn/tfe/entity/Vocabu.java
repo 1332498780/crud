@@ -49,6 +49,8 @@ public class Vocabu {
 
     private List<CommonRes> similarRes; //词组结果集
 
+    private List<String> advLinks;
+
     @CreatedDate
     private Date createTime;
 

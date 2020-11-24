@@ -34,10 +34,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.net.URLEncoder;
+import java.util.*;
 import java.util.regex.Pattern;
 
 @RestController
@@ -126,13 +124,13 @@ public class VocabuController {
         throw new CustomException("更新单词失败");
     }
 
-    @GetMapping("getRemplate")
-    public void getRemplate(@RequestParam("param") String  param,
+    @PostMapping("getTemplate")
+    public void getRemplate(@RequestBody String[]  params,
         HttpServletResponse response
     ) throws IOException {
-        String[] params = param.split(",");
+//        String[] params = param.split(",");
         if(params.length <= 0){
-            log.error("异常参数:"+param);
+            log.error("异常参数:"+params);
             throw new CustomException("参数异常");
         }
         TransApi api = new TransApi(appid, securityKey);
@@ -162,7 +160,24 @@ public class VocabuController {
         }
         response.setHeader("Content-Type", "application/vnd.ms-excel");
         response.setHeader("Content-Disposition", "attachment; filename=导入模板");
-        EasyExcel.write(response.getOutputStream(),VocabuDto.class).sheet("模板").doWrite(vocabuDtos);
+
+
+        try {
+            response.setContentType("application/vnd.ms-excel");
+            response.setCharacterEncoding("utf-8");
+            // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
+            String fileName = URLEncoder.encode("导入模板", "UTF-8").replaceAll("\\+", "%20");
+            response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
+            // 这里需要设置不关闭流
+            EasyExcel.write(response.getOutputStream(),VocabuDto.class).autoCloseStream(Boolean.FALSE)
+                    .sheet("模板").doWrite(vocabuDtos);
+        } catch (Exception e) {
+            // 重置response
+            response.reset();
+            response.setContentType("application/json");
+            response.setCharacterEncoding("utf-8");
+            response.getWriter().println("{\"code\":500,data:\""+e.getMessage()+"\"}");
+        }
     }
 
     /***
@@ -181,7 +196,7 @@ public class VocabuController {
             throw new CustomException("请求api返回数据格式非法");
         }
         JsonObject res = element.getAsJsonObject();
-        log.info(res.toString());
+//        log.info(res.toString());
         return res.getAsJsonArray("trans_result").get(0).getAsJsonObject();
     }
 
@@ -256,7 +271,7 @@ public class VocabuController {
         for(char c : chinese.toCharArray()){
             try {
                 String[] res = PinyinHelper.toHanyuPinyinStringArray(c,outputFormat);
-                if(res.length >= 0){
+                if(res != null && res.length >= 0){
                     builder.append(res[0]).append(' ');
                 }
             } catch (BadHanyuPinyinOutputFormatCombination badHanyuPinyinOutputFormatCombination) {

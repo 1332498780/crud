@@ -13,12 +13,12 @@ public class CustomExceptionHandler {
 
     @ExceptionHandler(CustomException.class)
     public Error handleCustomException(CustomException exception){
-        return new Error(222,exception.getMsg());
+        return new Error(500,exception.getMsg());
     }
 
     @ExceptionHandler(org.springframework.dao.DuplicateKeyException.class)
     public Error handleDuplicateKey(){
-        return new Error(222,"新增单词重复");
+        return new Error(500,"新增单词重复");
     }
 
     @ExceptionHandler(Exception.class)

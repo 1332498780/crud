@@ -42,4 +42,7 @@ public class VocabuDto {
 
     @ExcelProperty(value = "词组结果集",converter = ListCommonResConverter.class)
     private List<CommonRes> similarRes; //词组结果集
+
+    @ExcelProperty(value = "广告链接",converter = ListStringConverter.class)
+    private List<String> advLinks;
 }

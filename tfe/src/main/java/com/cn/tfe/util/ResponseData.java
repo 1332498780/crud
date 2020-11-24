@@ -15,7 +15,7 @@ import java.util.Map;
 @SuperBuilder
 public class ResponseData<T> {
 
-    private int code = 500;
+    private int code = 200;
     private T data;
 
     public static final ResponseData<Map> SUCCESS = ResponseData.<Map>builder().code(200).data(Collections.EMPTY_MAP).build();

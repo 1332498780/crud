@@ -3,43 +3,33 @@
   "title": "title",
   "description": "描述",
   "word": "pancake",
-  "transRes": [
-    {
+  "eDict": "a thin flat round cake made from a mixture of flour",
+  "strokes": ["http://xxx.img","http://xxx.img1"],
+  "transRes": {
       "dst": "煎饼",
-      "phonetic": ["jian","bing"],
-      "eDict": "a thin flat round cake made from a mixture of flour",
-      "volumnUrl": "发音链接",
-      "strokes": ["http://xxx.img","http://xxx.img1"]
-    },
-    {
-      "dst": "粉饼",
-      "phonetic": ["fen","bing"],
-      "eDict": "thick make-up for the face, used especially in the theatre",
-      "volumnUrl": "发音链接"
-    }
-  ],
-  "wordRes": [
+      "phonetic": "jian bing",
+      "dstTts": "发音链接"
+  },
+  "similarRes": [
     {
       "dst": "煎饼侠",
-      "phonetic": ["jian","bing","xia"],
-      "eDict": "pancake man"
+      "phonetic": "jian bing xia",
+      "word": "pancake man",
+      "dstTts": "发音链接"
     },
     {
       "dst": "煎饼果子",
-      "phonetic": ["jian","bing","guo","zi"],
-      "eDict": "pancake rolled with crisp fritter"
+      "phonetic": "jian bing guo zi",
+      "word": "pancake rolled with crisp fritter",
+      "dstTts": "发音链接"
     }
   ],
-  "sentenceRes": [
+  "exampleRes": [
     {
       "dst": "这个煎饼真好吃",
-      "phonetic": ["zhe","ge","jian","bing","zhen","hao","chi"],
-      "eDict": "This pancake is delicious"
-    },
-    {
-      "dst": "我是煎饼侠",
-      "phonetic": ["wo","shi","jian","bing","xia"],
-      "eDict": "I am pancake man"
+      "phonetic": "zhe ge jian bing zhen hao chi",
+      "word": "This pancake is delicious",
+      "dstTts": "发音链接"
     }
   ],
   "advLinks": ["http://","http://"]
