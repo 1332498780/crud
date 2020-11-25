@@ -1,6 +1,7 @@
 package com.cn.tfe.controller;
 
 import com.cn.tfe.exception.CustomException;
+import com.cn.tfe.filter.UserLoginToken;
 import com.cn.tfe.util.ResponseData;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import java.util.Date;
 
 @Controller
 @RequestMapping("/multi")
+@UserLoginToken
 public class MultipartController {
 
     private String uploadPath = "/tmp";

@@ -39,26 +39,27 @@ public class AsynVocabuService {
     public Future<Vocabu> executeGetVocabuDto(TransApi api, String word, Language from , Language to){
         log.info(Thread.currentThread().getName()+" get ready to execute "+"< "+word+" >");
         JsonObject en2zhObj = sendRequest(api,word, from, to);
-        JsonObject dictObj = JsonParser.parseString(en2zhObj.getAsJsonPrimitive("dict").getAsString()).getAsJsonObject();
+
         Vocabu.VocabuBuilder builder = Vocabu.builder().word(word);
         CommonRes transRes = getCommonRes(api,word);
         builder.transRes(transRes);
-
-        JsonElement edictElement = dictObj.getAsJsonObject("word_result").get("edict");
-        if(edictElement.isJsonPrimitive()){
-            log.warn("word: ["+word+"] 'edict is json primitive!!!");
-        }else if(edictElement.isJsonObject()){
-            JsonArray trGroup = edictElement.getAsJsonObject().getAsJsonArray("item")
-                    .get(0).getAsJsonObject().getAsJsonArray("tr_group");
-            String eDict = trGroup.get(0).getAsJsonObject().getAsJsonArray("tr").get(0).getAsString();
-            List<CommonRes> exampleRes = getWordSentence(api,trGroup,word,"example");
-            List<CommonRes> similarRes = getWordSentence(api,trGroup,word,"similar_word");
-            builder.word(word)
-                    .edict(eDict)
-                    .similarRes(similarRes)
-                    .exampleRes(exampleRes);
+        JsonElement dictElement = JsonParser.parseString(en2zhObj.getAsJsonPrimitive("dict").getAsString());
+        if(dictElement.isJsonObject()){
+            JsonElement edictElement = dictElement.getAsJsonObject().getAsJsonObject("word_result").get("edict");
+            if(edictElement.isJsonPrimitive()){
+                log.warn("word: ["+word+"] 'edict is json primitive!!!");
+            }else if(edictElement.isJsonObject()) {
+                JsonArray trGroup = edictElement.getAsJsonObject().getAsJsonArray("item")
+                        .get(0).getAsJsonObject().getAsJsonArray("tr_group");
+                String eDict = trGroup.get(0).getAsJsonObject().getAsJsonArray("tr").get(0).getAsString();
+                List<CommonRes> exampleRes = getWordSentence(api, trGroup, word, "example");
+                List<CommonRes> similarRes = getWordSentence(api, trGroup, word, "similar_word");
+                builder.word(word)
+                        .edict(eDict)
+                        .similarRes(similarRes)
+                        .exampleRes(exampleRes);
+            }
         }
-
 //        if(dictObj.get("word_result").isJsonPrimitive()){
 //            log.info("word: ["+word+"] 'word_result is json primitive!!!");
 //        }else if(dictObj.get("word_result").isJsonObject()){

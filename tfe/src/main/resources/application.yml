@@ -29,7 +29,7 @@ baidu:
 
 custom-config:
   thread:
-    core-size: 10
+    core-size: 5
     max-pool-size: 20
     queue-capacity: 500
     keep-alive-seconds: 60
