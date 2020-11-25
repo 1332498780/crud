@@ -31,5 +31,5 @@ custom-config:
   thread:
     core-size: 10
     max-pool-size: 20
-    queue-capacity: 100
+    queue-capacity: 500
     keep-alive-seconds: 60

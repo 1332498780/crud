@@ -1,4 +1,4 @@
-package com.cn.tfe.demo;
+package com.cn.tfe.emums;
 
 import lombok.Data;
 import lombok.ToString;

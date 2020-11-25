@@ -33,6 +33,7 @@ public class ThreadPoolConfig {
         executor.setKeepAliveSeconds(keepAliveSeconds);
         executor.setQueueCapacity(queueCapacity);
         executor.setThreadNamePrefix("customExecutor--");
+        executor.setWaitForTasksToCompleteOnShutdown(true);
         return executor;
     }
 

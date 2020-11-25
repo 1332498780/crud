@@ -39,8 +39,8 @@ public class JsonTest {
 
     @Test
     public void testPrimitiveType(){
-        String str = "{\"name\":\"\"}";
+        String str = "{\"name\":null}";
         JsonElement ele = JsonParser.parseString(str).getAsJsonObject().get("name");
-        log.info(ele.isJsonPrimitive()+"");
+        log.info(ele.isJsonNull()+"");
     }
 }
