@@ -44,11 +44,11 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
                 return true;
             }
         }else{
-            boolean passFlag = false;
+            //如果类上有passtoken也直接跳过
             if(handlerMethod.getBeanType().isAnnotationPresent(PassToken.class)){
-                PassToken passToken = handlerMethod.getBeanType().getAnnotation(PassToken.class);
-                if (passToken.required()) {
-                    passFlag = true;
+                PassToken tokenAnnotation = handlerMethod.getBeanType().getAnnotation(PassToken.class);
+                if (tokenAnnotation.required()) {
+                    return true;
                 }
             }
         }
@@ -57,33 +57,47 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
         if (method.isAnnotationPresent(UserLoginToken.class)) {
             UserLoginToken userLoginToken = method.getAnnotation(UserLoginToken.class);
             if (userLoginToken.required()) {
-                // 执行认证
-                if (token == null) {
-                    throw new CustomException("无token，请重新登录");
+                return authenticate(token);
+            }
+        }else{
+            //如果类上有usertoken也需要验证
+            if(handlerMethod.getBeanType().isAnnotationPresent(UserLoginToken.class)){
+                UserLoginToken userLoginToken = handlerMethod.getBeanType().getAnnotation(UserLoginToken.class);
+                if (userLoginToken.required()) {
+                    return authenticate(token);
                 }
-                // 获取 token 中的 user id
-                Integer userId;
-                try {
-                    userId = Integer.valueOf(JWT.decode(token).getAudience().get(0));
-                } catch (JWTDecodeException j) {
-                    throw new CustomException("401");
-                }
-                User user = userRepository.findUserById(userId);
-                if (user == null) {
-                    throw new CustomException("用户不存在，请重新登录");
-                }
-                // 验证 token
-                JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).build();
-                try {
-                    jwtVerifier.verify(token);
-                } catch (JWTVerificationException e) {
-                    throw new CustomException("401");
-                }
-                return true;
             }
         }
         return true;
     }
+
+
+    private boolean authenticate(String token){
+        // 执行认证
+        if (token == null) {
+            throw new CustomException("无token，请重新登录");
+        }
+        // 获取 token 中的 user id
+        String username;
+        try {
+            username = JWT.decode(token).getAudience().get(0);
+        } catch (JWTDecodeException j) {
+            throw new CustomException("401");
+        }
+        User user = userRepository.findUsersByUsername(username);
+        if (user == null) {
+            throw new CustomException("用户不存在，请重新登录");
+        }
+        // 验证 token
+        JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).build();
+        try {
+            jwtVerifier.verify(token);
+        } catch (JWTVerificationException e) {
+            throw new CustomException("401");
+        }
+        return true;
+    }
+
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest,
