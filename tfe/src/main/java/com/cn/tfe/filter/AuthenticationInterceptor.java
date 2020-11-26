@@ -25,7 +25,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
 
     @Autowired
     UserRepository userRepository;
-    
+
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) throws Exception {
