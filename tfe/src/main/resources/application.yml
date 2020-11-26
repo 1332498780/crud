@@ -8,9 +8,15 @@ spring:
       uri: mongodb://127.0.0.1:27017/testdb
       auto-index-creation: true
   resources:
-    static-locations: file:/opt/tfe/upload
+    static-locations: file:D:/upload
+#    static-locations: file:/opt/tfe/upload
   mvc:
     static-path-pattern: /static/**
+  servlet:
+    multipart:
+      max-file-size: 256MB # 单个文件大小限制
+      max-request-size: 512MB # 一个请求文件大小
+
 logging:
   level:
       dev: debug

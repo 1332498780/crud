@@ -3,6 +3,7 @@ package com.cn.tfe.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -16,9 +17,9 @@ public class CustomExceptionHandler {
         return new Error(500,exception.getMsg());
     }
 
-    @ExceptionHandler(org.springframework.dao.DuplicateKeyException.class)
-    public Error handleDuplicateKey(){
-        return new Error(500,"新增单词重复");
+    @ExceptionHandler(DuplicateKeyException.class)
+    public Error handleDuplicateKey(DuplicateKeyException duplicateKeyException){
+        return new Error(500,"新增重复,请检查唯一约束值");
     }
 
     @ExceptionHandler(Exception.class)

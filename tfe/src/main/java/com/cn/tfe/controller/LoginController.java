@@ -2,6 +2,7 @@ package com.cn.tfe.controller;
 
 import com.cn.tfe.entity.User;
 import com.cn.tfe.exception.CustomException;
+import com.cn.tfe.filter.PassToken;
 import com.cn.tfe.filter.UserLoginToken;
 import com.cn.tfe.repository.UserRepository;
 import com.cn.tfe.util.JwtUtil;
@@ -11,11 +12,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +27,7 @@ public class LoginController {
     @Autowired
     UserRepository userRepository;
 
+    @PassToken
     @PostMapping("/login")
     public ResponseData<String> login(@RequestBody User user){
         User dbUser = userRepository.findUsersByUsername(user.getUsername());
@@ -44,8 +45,12 @@ public class LoginController {
     }
 
     @UserLoginToken
-    @GetMapping("/getMessage")
-    public ResponseData<User> getMessage(){
-        return ResponseData.of(new User());
+    @PostMapping("/add")
+    public ResponseData createUser(@RequestBody @Valid User user, Errors errors){
+        if(errors.hasErrors()){
+            throw new CustomException(errors.getAllErrors().get(0).getDefaultMessage());
+        }
+        userRepository.save(user);
+        return ResponseData.SUCCESS;
     }
 }
