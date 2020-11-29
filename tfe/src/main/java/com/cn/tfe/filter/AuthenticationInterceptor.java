@@ -9,6 +9,7 @@ import com.cn.tfe.entity.User;
 import com.cn.tfe.exception.CustomException;
 import com.cn.tfe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -25,7 +26,6 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
 
     @Autowired
     UserRepository userRepository;
-
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) throws Exception {

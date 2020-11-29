@@ -1,594 +1,464 @@
-2020-11-26 00:09:05.442  INFO 8468 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 8468 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
-2020-11-26 00:09:05.455  INFO 8468 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 00:09:05.671  INFO 8468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 00:09:05.672  INFO 8468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 00:09:06.522  INFO 8468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 00:09:06.639  INFO 8468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110ms. Found 3 MongoDB repository interfaces.
-2020-11-26 00:09:07.601  INFO 8468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 00:09:07.618  INFO 8468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 00:09:07.619  INFO 8468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 00:09:07.768  INFO 8468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 00:09:07.768  INFO 8468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2095 ms
-2020-11-26 00:09:08.083  INFO 8468 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 00:09:08.182  INFO 8468 --- [cluster-ClusterId{value='5fbe81a499c38c594530d1fb', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:157}] to 127.0.0.1:27017
-2020-11-26 00:09:08.190  INFO 8468 --- [cluster-ClusterId{value='5fbe81a499c38c594530d1fb', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5575100}
-2020-11-26 00:09:08.539  INFO 8468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 00:09:08.679 DEBUG 8468 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 00:09:08.680 DEBUG 8468 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 00:09:08.695 DEBUG 8468 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 00:09:08.783  INFO 8468 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:158}] to 127.0.0.1:27017
-2020-11-26 00:09:08.802 DEBUG 8468 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 00:09:09.087  INFO 8468 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 00:09:09.649  INFO 8468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 00:09:09.663  INFO 8468 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.322 seconds (JVM running for 7.187)
-2020-11-26 00:09:26.512  INFO 8468 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 00:09:26.513  INFO 8468 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 00:09:26.524  INFO 8468 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-2020-11-26 00:09:26.644 DEBUG 8468 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "id" : "123"} fields: Document{{}} for class: class com.cn.tfe.entity.Vocabu in collection: vocabulary
-2020-11-26 00:09:26.653 DEBUG 8468 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "_id" : "123"} fields: {} in db.collection: testdb.vocabulary
-2020-11-26 00:09:26.823  WARN 8468 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=不存在的id)]
-2020-11-26 00:10:06.384  INFO 8468 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 00:10:06.392  INFO 8468 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:158}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 00:10:23.805  INFO 1184 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 1184 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
-2020-11-26 00:10:23.814  INFO 1184 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 00:10:23.979  INFO 1184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 00:10:23.981  INFO 1184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 00:10:25.102  INFO 1184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 00:10:25.277  INFO 1184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 163ms. Found 3 MongoDB repository interfaces.
-2020-11-26 00:10:27.131  INFO 1184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 00:10:27.146  INFO 1184 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 00:10:27.147  INFO 1184 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 00:10:27.312  INFO 1184 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 00:10:27.313  INFO 1184 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3329 ms
-2020-11-26 00:10:27.653  INFO 1184 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 00:10:27.863  INFO 1184 --- [cluster-ClusterId{value='5fbe81f3be82653e1acc12ed', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:159}] to 127.0.0.1:27017
-2020-11-26 00:10:27.877  INFO 1184 --- [cluster-ClusterId{value='5fbe81f3be82653e1acc12ed', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9163200}
-2020-11-26 00:10:28.690  INFO 1184 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 00:10:28.767 DEBUG 1184 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 00:10:28.839  INFO 1184 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:160}] to 127.0.0.1:27017
-2020-11-26 00:10:28.853 DEBUG 1184 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 00:10:28.853 DEBUG 1184 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 00:10:28.853 DEBUG 1184 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 00:10:29.098  INFO 1184 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 00:10:29.674  INFO 1184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 00:10:29.687  INFO 1184 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 6.825 seconds (JVM running for 9.021)
-2020-11-26 00:10:49.076  INFO 1184 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 00:10:49.080  INFO 1184 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:160}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 00:11:47.332  INFO 14544 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 14544 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
-2020-11-26 00:11:47.338  INFO 14544 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 00:11:47.464  INFO 14544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 00:11:47.465  INFO 14544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 00:11:49.496  INFO 14544 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 00:11:49.632  INFO 14544 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 126ms. Found 3 MongoDB repository interfaces.
-2020-11-26 00:11:50.741  INFO 14544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 00:11:50.763  INFO 14544 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 00:11:50.764  INFO 14544 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 00:11:50.996  INFO 14544 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 00:11:50.997  INFO 14544 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3531 ms
-2020-11-26 00:11:51.243  INFO 14544 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 00:11:51.333  INFO 14544 --- [cluster-ClusterId{value='5fbe8247ca610f1c376d0c8c', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:161}] to 127.0.0.1:27017
-2020-11-26 00:11:51.343  INFO 14544 --- [cluster-ClusterId{value='5fbe8247ca610f1c376d0c8c', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6362800}
-2020-11-26 00:11:51.710  INFO 14544 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 00:11:51.795 DEBUG 14544 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 00:11:51.796 DEBUG 14544 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 00:11:51.805 DEBUG 14544 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 00:11:51.806 DEBUG 14544 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 00:11:51.869  INFO 14544 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:162}] to 127.0.0.1:27017
-2020-11-26 00:11:52.125  INFO 14544 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 00:11:52.719  INFO 14544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 00:11:52.732  INFO 14544 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 6.753 seconds (JVM running for 8.772)
-2020-11-26 00:12:00.170  INFO 14544 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 00:12:00.170  INFO 14544 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 00:12:00.186  INFO 14544 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
-2020-11-26 00:12:00.409  WARN 14544 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.RuntimeException: 无token，请重新登录]
-2020-11-26 00:12:15.098  INFO 14544 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 00:12:15.103  INFO 14544 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:162}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 00:13:24.510  INFO 18604 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 18604 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
-2020-11-26 00:13:24.516  INFO 18604 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 00:13:24.676  INFO 18604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 00:13:24.678  INFO 18604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 00:13:25.786  INFO 18604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 00:13:25.942  INFO 18604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144ms. Found 3 MongoDB repository interfaces.
-2020-11-26 00:13:27.639  INFO 18604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 00:13:27.662  INFO 18604 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 00:13:27.663  INFO 18604 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 00:13:27.836  INFO 18604 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 00:13:27.837  INFO 18604 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3156 ms
-2020-11-26 00:13:28.216  INFO 18604 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 00:13:28.319  INFO 18604 --- [cluster-ClusterId{value='5fbe82a8edf61430d325f3ad', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:163}] to 127.0.0.1:27017
-2020-11-26 00:13:28.330  INFO 18604 --- [cluster-ClusterId{value='5fbe82a8edf61430d325f3ad', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6876400}
-2020-11-26 00:13:28.716  INFO 18604 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 00:13:28.812 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 00:13:28.813 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 00:13:28.885  INFO 18604 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:164}] to 127.0.0.1:27017
-2020-11-26 00:13:28.905 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 00:13:28.906 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 00:13:29.181  INFO 18604 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 00:13:29.776  INFO 18604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 00:13:29.789  INFO 18604 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 6.139 seconds (JVM running for 8.421)
-2020-11-26 00:13:35.350  INFO 18604 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 00:13:35.351  INFO 18604 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 00:13:35.385  INFO 18604 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 34 ms
-2020-11-26 00:13:35.693 DEBUG 18604 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "id" : "123"} fields: Document{{}} for class: class com.cn.tfe.entity.Vocabu in collection: vocabulary
-2020-11-26 00:13:35.718 DEBUG 18604 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "_id" : "123"} fields: {} in db.collection: testdb.vocabulary
-2020-11-26 00:13:36.023  WARN 18604 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=不存在的id)]
-2020-11-26 00:13:39.837  INFO 18604 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 00:13:39.848  INFO 18604 --- [Thread-16] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:164}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 00:13:40.578  INFO 18604 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 18604 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
-2020-11-26 00:13:40.578  INFO 18604 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 00:13:41.131  INFO 18604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 00:13:41.310  INFO 18604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 178ms. Found 3 MongoDB repository interfaces.
-2020-11-26 00:13:41.916  INFO 18604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 00:13:41.917  INFO 18604 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 00:13:41.918  INFO 18604 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 00:13:42.012  INFO 18604 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 00:13:42.013  INFO 18604 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1428 ms
-2020-11-26 00:13:43.988  INFO 18604 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 00:13:44.531  INFO 18604 --- [cluster-ClusterId{value='5fbe82b7edf61430d325f3ae', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:165}] to 127.0.0.1:27017
-2020-11-26 00:13:44.537  INFO 18604 --- [cluster-ClusterId{value='5fbe82b7edf61430d325f3ae', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1127000}
-2020-11-26 00:13:44.564  INFO 18604 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 00:13:44.612 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 00:13:44.613 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 00:13:44.614 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 00:13:44.619  INFO 18604 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:166}] to 127.0.0.1:27017
-2020-11-26 00:13:44.622 DEBUG 18604 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 00:13:44.683  INFO 18604 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 00:13:45.013  INFO 18604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 00:13:45.018  INFO 18604 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 4.864 seconds (JVM running for 23.65)
-2020-11-26 00:13:45.022  INFO 18604 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-26 00:13:49.001  INFO 18604 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 00:13:49.001  INFO 18604 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 00:13:49.008  INFO 18604 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-11-26 00:13:49.015  WARN 18604 --- [http-nio-8081-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /tfe/vocabu/get/123
-2020-11-26 00:20:26.192  INFO 18112 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 18112 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
-2020-11-26 00:20:26.198  INFO 18112 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 00:20:26.333  INFO 18112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 00:20:26.334  INFO 18112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 00:20:27.378  INFO 18112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 00:20:27.602  INFO 18112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 213ms. Found 3 MongoDB repository interfaces.
-2020-11-26 00:20:29.072  INFO 18112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 00:20:29.085  INFO 18112 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 00:20:29.086  INFO 18112 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 00:20:29.227  INFO 18112 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 00:20:29.227  INFO 18112 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2892 ms
-2020-11-26 00:20:29.492  INFO 18112 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 00:20:29.578  INFO 18112 --- [cluster-ClusterId{value='5fbe844ddca2e26dbd69ef73', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:167}] to 127.0.0.1:27017
-2020-11-26 00:20:29.586  INFO 18112 --- [cluster-ClusterId{value='5fbe844ddca2e26dbd69ef73', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5369300}
-2020-11-26 00:20:29.891  INFO 18112 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 00:20:29.978 DEBUG 18112 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 00:20:30.051  INFO 18112 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:168}] to 127.0.0.1:27017
-2020-11-26 00:20:30.063 DEBUG 18112 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 00:20:30.064 DEBUG 18112 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 00:20:30.064 DEBUG 18112 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 00:20:30.301  INFO 18112 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 00:20:30.856  INFO 18112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 00:20:30.869  INFO 18112 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.704 seconds (JVM running for 7.743)
-2020-11-26 00:20:35.019  INFO 18112 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 00:20:35.020  INFO 18112 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 00:20:35.034  INFO 18112 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
-2020-11-26 00:22:38.559 DEBUG 18112 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "id" : "123"} fields: Document{{}} for class: class com.cn.tfe.entity.Vocabu in collection: vocabulary
-2020-11-26 00:22:38.566 DEBUG 18112 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "_id" : "123"} fields: {} in db.collection: testdb.vocabulary
-2020-11-26 00:22:38.705  WARN 18112 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=不存在的id)]
-2020-11-26 00:22:57.752  INFO 18112 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 00:22:57.756  INFO 18112 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:168}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 09:31:17.163  INFO 17688 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 17688 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 09:31:17.167  INFO 17688 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 09:31:17.240  INFO 17688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 09:31:17.240  INFO 17688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 09:31:17.896  INFO 17688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 09:31:17.976  INFO 17688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74ms. Found 3 MongoDB repository interfaces.
-2020-11-26 09:31:18.665  INFO 17688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 09:31:18.676  INFO 17688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 09:31:18.677  INFO 17688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 09:31:18.783  INFO 17688 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 09:31:18.783  INFO 17688 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1542 ms
-2020-11-26 09:31:18.974  INFO 17688 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 09:31:19.039  INFO 17688 --- [cluster-ClusterId{value='5fbf05661470de782058bda6', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:107}] to 127.0.0.1:27017
-2020-11-26 09:31:19.044  INFO 17688 --- [cluster-ClusterId{value='5fbf05661470de782058bda6', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3004000}
-2020-11-26 09:31:19.265  INFO 17688 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 09:31:19.313 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 09:31:19.320 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 09:31:19.320 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 09:31:19.359  INFO 17688 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:108}] to 127.0.0.1:27017
-2020-11-26 09:31:19.369 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 09:31:19.541  INFO 17688 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 09:31:19.979  INFO 17688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 09:31:19.990  INFO 17688 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.503 seconds (JVM running for 6.218)
-2020-11-26 09:31:43.872  INFO 17688 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 09:31:43.873  INFO 17688 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 09:31:43.882  INFO 17688 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2020-11-26 09:32:09.632  WARN 17688 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
-2020-11-26 09:32:11.625  INFO 17688 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 09:32:11.630  INFO 17688 --- [Thread-8] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:108}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 09:32:11.804  INFO 17688 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 17688 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 09:32:11.805  INFO 17688 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 09:32:11.980  INFO 17688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 09:32:12.010  INFO 17688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30ms. Found 3 MongoDB repository interfaces.
-2020-11-26 09:32:12.134  INFO 17688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 09:32:12.135  INFO 17688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 09:32:12.135  INFO 17688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 09:32:12.168  INFO 17688 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 09:32:12.168  INFO 17688 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 360 ms
-2020-11-26 09:32:12.188  INFO 17688 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 09:32:12.191  INFO 17688 --- [cluster-ClusterId{value='5fbf059c1470de782058bda7', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:109}] to 127.0.0.1:27017
-2020-11-26 09:32:12.194  INFO 17688 --- [cluster-ClusterId{value='5fbf059c1470de782058bda7', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=710300}
-2020-11-26 09:32:12.218  INFO 17688 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 09:32:12.239 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 09:32:12.242  INFO 17688 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:110}] to 127.0.0.1:27017
-2020-11-26 09:32:12.243 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 09:32:12.243 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 09:32:12.244 DEBUG 17688 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 09:32:12.284  INFO 17688 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 09:32:12.411  INFO 17688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 09:32:12.417  INFO 17688 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 0.653 seconds (JVM running for 58.644)
-2020-11-26 09:32:12.419  INFO 17688 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-26 09:33:19.495  INFO 17688 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 09:33:19.496  INFO 17688 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 09:33:19.504  INFO 17688 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2020-11-26 09:33:19.508  WARN 17688 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
-2020-11-26 09:33:57.683  WARN 17688 --- [http-nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
-2020-11-26 09:34:27.802  INFO 17688 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 09:34:27.803  INFO 17688 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:110}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 10:12:12.312  INFO 14036 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 14036 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 10:12:12.316  INFO 14036 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 10:12:12.394  INFO 14036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 10:12:12.394  INFO 14036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 10:12:13.027  INFO 14036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 10:12:13.113  INFO 14036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81ms. Found 3 MongoDB repository interfaces.
-2020-11-26 10:12:13.872  INFO 14036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 10:12:13.881  INFO 14036 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 10:12:13.882  INFO 14036 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 10:12:13.999  INFO 14036 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 10:12:13.999  INFO 14036 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1604 ms
-2020-11-26 10:12:14.211  INFO 14036 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 10:12:14.266  INFO 14036 --- [cluster-ClusterId{value='5fbf0efe56e89326441ac7a3', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:111}] to 127.0.0.1:27017
-2020-11-26 10:12:14.271  INFO 14036 --- [cluster-ClusterId{value='5fbf0efe56e89326441ac7a3', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3774600}
-2020-11-26 10:12:14.533  INFO 14036 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 10:12:14.596 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 10:12:14.661  INFO 14036 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:112}] to 127.0.0.1:27017
-2020-11-26 10:12:14.673 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 10:12:14.674 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 10:12:14.674 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 10:12:14.869  INFO 14036 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 10:12:15.361  INFO 14036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 10:12:15.377  INFO 14036 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.651 seconds (JVM running for 6.108)
-2020-11-26 10:13:12.656  INFO 14036 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 10:13:12.656  INFO 14036 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 10:13:12.663  INFO 14036 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-11-26 10:13:12.745  WARN 14036 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
-2020-11-26 10:13:46.819  WARN 14036 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=401)]
-2020-11-26 10:14:16.181 DEBUG 14036 --- [http-nio-8081-exec-4] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "zs"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:14:42.485  WARN 14036 --- [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "null"]
-2020-11-26 10:16:49.518  INFO 14036 --- [Thread-9] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 10:16:49.523  INFO 14036 --- [Thread-9] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:112}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 10:16:49.728  INFO 14036 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 14036 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 10:16:49.729  INFO 14036 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 10:16:49.935  INFO 14036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 10:16:49.971  INFO 14036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35ms. Found 3 MongoDB repository interfaces.
-2020-11-26 10:16:50.109  INFO 14036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 10:16:50.110  INFO 14036 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 10:16:50.110  INFO 14036 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 10:16:50.137  INFO 14036 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 10:16:50.137  INFO 14036 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 405 ms
-2020-11-26 10:16:50.162  INFO 14036 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 10:16:50.165  INFO 14036 --- [cluster-ClusterId{value='5fbf101256e89326441ac7a4', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:113}] to 127.0.0.1:27017
-2020-11-26 10:16:50.167  INFO 14036 --- [cluster-ClusterId{value='5fbf101256e89326441ac7a4', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=638100}
-2020-11-26 10:16:50.194  INFO 14036 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 10:16:50.212 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 10:16:50.213 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 10:16:50.213 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 10:16:50.215  INFO 14036 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:114}] to 127.0.0.1:27017
-2020-11-26 10:16:50.216 DEBUG 14036 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 10:16:50.263  INFO 14036 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 10:16:50.412  INFO 14036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 10:16:50.415  INFO 14036 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 0.729 seconds (JVM running for 281.141)
-2020-11-26 10:16:50.417  INFO 14036 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-26 10:18:45.894  INFO 14036 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 10:18:45.895  INFO 14036 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:114}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 10:21:01.294  INFO 9932 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 9932 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 10:21:01.298  INFO 9932 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 10:21:01.370  INFO 9932 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 10:21:01.371  INFO 9932 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 10:21:01.976  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 10:21:02.059  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77ms. Found 3 MongoDB repository interfaces.
-2020-11-26 10:21:02.797  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 10:21:02.808  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 10:21:02.809  INFO 9932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 10:21:02.915  INFO 9932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 10:21:02.915  INFO 9932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1544 ms
-2020-11-26 10:21:03.118  INFO 9932 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 10:21:03.173  INFO 9932 --- [cluster-ClusterId{value='5fbf110fbfb83271e0246b9c', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:115}] to 127.0.0.1:27017
-2020-11-26 10:21:03.177  INFO 9932 --- [cluster-ClusterId{value='5fbf110fbfb83271e0246b9c', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2980500}
-2020-11-26 10:21:03.434  INFO 9932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 10:21:03.496 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 10:21:03.497 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 10:21:03.497 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 10:21:03.546  INFO 9932 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:116}] to 127.0.0.1:27017
-2020-11-26 10:21:03.559 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 10:21:03.740  INFO 9932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 10:21:04.192  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 10:21:04.204  INFO 9932 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.476 seconds (JVM running for 5.948)
-2020-11-26 10:21:08.994  INFO 9932 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 10:21:08.995  INFO 9932 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 10:21:09.003  INFO 9932 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2020-11-26 10:21:09.103 DEBUG 9932 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : find using query: { "_id" : "null"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:21:09.196  WARN 9932 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=用户不存在，请重新登录)]
-2020-11-26 10:23:01.067  INFO 9932 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 10:23:01.071  INFO 9932 --- [Thread-8] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:116}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 10:23:01.283  INFO 9932 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 9932 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 10:23:01.284  INFO 9932 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 10:23:01.487  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 10:23:01.525  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37ms. Found 3 MongoDB repository interfaces.
-2020-11-26 10:23:01.674  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 10:23:01.674  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 10:23:01.675  INFO 9932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 10:23:01.710  INFO 9932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 10:23:01.710  INFO 9932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 422 ms
-2020-11-26 10:23:01.731  INFO 9932 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 10:23:01.734  INFO 9932 --- [cluster-ClusterId{value='5fbf1185bfb83271e0246b9d', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:118}] to 127.0.0.1:27017
-2020-11-26 10:23:01.736  INFO 9932 --- [cluster-ClusterId{value='5fbf1185bfb83271e0246b9d', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=650200}
-2020-11-26 10:23:01.761  INFO 9932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 10:23:01.782 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 10:23:01.783 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 10:23:01.783 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 10:23:01.783 DEBUG 9932 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 10:23:01.786  INFO 9932 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:119}] to 127.0.0.1:27017
-2020-11-26 10:23:01.822  INFO 9932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 10:23:01.958  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 10:23:01.961  INFO 9932 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 0.724 seconds (JVM running for 123.702)
-2020-11-26 10:23:01.962  INFO 9932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-26 10:36:39.645  INFO 9932 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 10:36:39.645  INFO 9932 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 10:36:39.653  INFO 9932 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2020-11-26 10:36:39.700 DEBUG 9932 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:37:16.352  WARN 9932 --- [http-nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
-2020-11-26 10:38:24.439  WARN 9932 --- [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
-2020-11-26 10:39:07.658  WARN 9932 --- [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
-2020-11-26 10:39:42.021  WARN 9932 --- [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
-2020-11-26 10:42:01.092  INFO 9932 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 10:42:01.093  INFO 9932 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:119}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 10:45:33.569  INFO 11124 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 11124 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 10:45:33.573  INFO 11124 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 10:45:33.648  INFO 11124 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 10:45:33.648  INFO 11124 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 10:45:34.249  INFO 11124 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 10:45:34.343  INFO 11124 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88ms. Found 3 MongoDB repository interfaces.
-2020-11-26 10:45:35.047  INFO 11124 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 10:45:35.058  INFO 11124 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 10:45:35.058  INFO 11124 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 10:45:35.165  INFO 11124 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 10:45:35.166  INFO 11124 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1517 ms
-2020-11-26 10:45:35.394  INFO 11124 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 10:45:35.457  INFO 11124 --- [cluster-ClusterId{value='5fbf16cf5b3a447f0fb8a98f', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:120}] to 127.0.0.1:27017
-2020-11-26 10:45:35.463  INFO 11124 --- [cluster-ClusterId{value='5fbf16cf5b3a447f0fb8a98f', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3959500}
-2020-11-26 10:45:35.733  INFO 11124 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 10:45:35.796 DEBUG 11124 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 10:45:35.796 DEBUG 11124 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 10:45:35.843  INFO 11124 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:121}] to 127.0.0.1:27017
-2020-11-26 10:45:35.853 DEBUG 11124 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 10:45:35.854 DEBUG 11124 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 10:45:36.017  INFO 11124 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 10:45:36.420  INFO 11124 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 10:45:36.428  INFO 11124 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.39 seconds (JVM running for 5.738)
-2020-11-26 10:46:49.356  INFO 11124 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 10:46:49.356  INFO 11124 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 10:46:49.363  INFO 11124 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2020-11-26 10:46:49.488 DEBUG 11124 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin1"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:46:49.539  WARN 11124 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=用户名错误)]
-2020-11-26 10:46:58.181 DEBUG 11124 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:46:58.206  WARN 11124 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=密码错误)]
-2020-11-26 10:47:03.505 DEBUG 11124 --- [http-nio-8081-exec-5] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:48:07.106 DEBUG 11124 --- [http-nio-8081-exec-6] o.s.data.mongodb.core.MongoTemplate      : find using query: { "_id" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:48:07.109  WARN 11124 --- [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=用户不存在，请重新登录)]
-2020-11-26 10:50:17.937  INFO 11124 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 10:50:17.940  INFO 11124 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:121}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 10:51:21.793  INFO 20696 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 20696 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 10:51:21.797  INFO 20696 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 10:51:21.865  INFO 20696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 10:51:21.865  INFO 20696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 10:51:22.471  INFO 20696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 10:51:22.548  INFO 20696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72ms. Found 3 MongoDB repository interfaces.
-2020-11-26 10:51:23.208  INFO 20696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 10:51:23.217  INFO 20696 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 10:51:23.217  INFO 20696 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 10:51:23.316  INFO 20696 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 10:51:23.316  INFO 20696 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1450 ms
-2020-11-26 10:51:23.490  INFO 20696 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 10:51:23.549  INFO 20696 --- [cluster-ClusterId{value='5fbf182bc94f6770ccd4806c', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:122}] to 127.0.0.1:27017
-2020-11-26 10:51:23.554  INFO 20696 --- [cluster-ClusterId{value='5fbf182bc94f6770ccd4806c', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3208100}
-2020-11-26 10:51:23.774  INFO 20696 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 10:51:23.823 DEBUG 20696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 10:51:23.823 DEBUG 20696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 10:51:23.823 DEBUG 20696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 10:51:23.863  INFO 20696 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:123}] to 127.0.0.1:27017
-2020-11-26 10:51:24.002 DEBUG 20696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 10:51:24.164  INFO 20696 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 10:51:24.549  INFO 20696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 10:51:24.558  INFO 20696 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.339 seconds (JVM running for 5.821)
-2020-11-26 10:51:38.427  INFO 20696 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 10:51:38.428  INFO 20696 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 10:51:38.434  INFO 20696 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-11-26 10:51:38.520 DEBUG 20696 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:51:40.116  WARN 20696 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=密码位数需要在6~18位之间)]
-2020-11-26 10:51:56.672 DEBUG 20696 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:51:56.677  WARN 20696 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=用户名位数需要在6~18位之间)]
-2020-11-26 10:52:09.480 DEBUG 20696 --- [http-nio-8081-exec-5] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:52:09.496 DEBUG 20696 --- [http-nio-8081-exec-5] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [username, password, _class] in collection: user
-2020-11-26 10:52:09.522  WARN 20696 --- [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DuplicateKeyException: E11000 duplicate key error collection: testdb.user index: username dup key: { username: "admin123" }; nested exception is com.mongodb.MongoWriteException: E11000 duplicate key error collection: testdb.user index: username dup key: { username: "admin123" }]
-2020-11-26 10:52:36.775 DEBUG 20696 --- [http-nio-8081-exec-6] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 10:52:36.780 DEBUG 20696 --- [http-nio-8081-exec-6] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [username, password, _class] in collection: user
-2020-11-26 10:52:51.463  INFO 20696 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 10:52:51.467  INFO 20696 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:123}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 11:17:02.109  INFO 24696 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 24696 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 11:17:02.113  INFO 24696 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 11:17:02.200  INFO 24696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 11:17:02.201  INFO 24696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 11:17:02.806  INFO 24696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 11:17:02.910  INFO 24696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98ms. Found 3 MongoDB repository interfaces.
-2020-11-26 11:17:03.673  INFO 24696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 11:17:03.683  INFO 24696 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 11:17:03.684  INFO 24696 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 11:17:03.787  INFO 24696 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 11:17:03.787  INFO 24696 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1585 ms
-2020-11-26 11:17:03.970  INFO 24696 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 11:17:04.027  INFO 24696 --- [cluster-ClusterId{value='5fbf1e2f142f8978128bb478', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:124}] to 127.0.0.1:27017
-2020-11-26 11:17:04.033  INFO 24696 --- [cluster-ClusterId{value='5fbf1e2f142f8978128bb478', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3451700}
-2020-11-26 11:17:04.275  INFO 24696 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 11:17:04.332 DEBUG 24696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 11:17:04.379  INFO 24696 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:125}] to 127.0.0.1:27017
-2020-11-26 11:17:04.388 DEBUG 24696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 11:17:04.388 DEBUG 24696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 11:17:04.388 DEBUG 24696 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 11:17:04.555  INFO 24696 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 11:17:05.048  INFO 24696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 11:17:05.058  INFO 24696 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.564 seconds (JVM running for 6.11)
-2020-11-26 11:18:16.292  INFO 24696 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 11:18:16.294  INFO 24696 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 11:18:16.299  INFO 24696 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2020-11-26 11:18:16.411  WARN 24696 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
-2020-11-26 11:19:02.622 DEBUG 24696 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:19:20.421 DEBUG 24696 --- [http-nio-8081-exec-4] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:19:20.430  WARN 24696 --- [http-nio-8081-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=请上传正确格式的文件)]
-2020-11-26 11:20:30.173  INFO 24696 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 11:20:30.177  INFO 24696 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:125}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 11:20:54.816  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 4784 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 11:20:54.820  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 11:20:54.906  INFO 4784 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 11:20:54.906  INFO 4784 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 11:20:55.544  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 11:20:55.630  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80ms. Found 3 MongoDB repository interfaces.
-2020-11-26 11:20:56.360  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 11:20:56.369  INFO 4784 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 11:20:56.370  INFO 4784 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 11:20:56.484  INFO 4784 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 11:20:56.485  INFO 4784 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1577 ms
-2020-11-26 11:20:56.694  INFO 4784 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 11:20:56.758  INFO 4784 --- [cluster-ClusterId{value='5fbf1f18df676a50ce864db8', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:126}] to 127.0.0.1:27017
-2020-11-26 11:20:56.763  INFO 4784 --- [cluster-ClusterId{value='5fbf1f18df676a50ce864db8', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3228200}
-2020-11-26 11:20:57.002  INFO 4784 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 11:20:57.055 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 11:20:57.055 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 11:20:57.103  INFO 4784 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:127}] to 127.0.0.1:27017
-2020-11-26 11:20:57.114 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 11:20:57.118 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 11:20:57.312  INFO 4784 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 11:20:57.784  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 11:20:57.792  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.566 seconds (JVM running for 6.05)
-2020-11-26 11:21:04.377  INFO 4784 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 11:21:04.377  INFO 4784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 11:21:04.383  INFO 4784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-11-26 11:21:04.501 DEBUG 4784 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:21:05.968  WARN 4784 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=请上传正确格式的文件)]
-2020-11-26 11:21:32.508 DEBUG 4784 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:21:49.647  WARN 4784 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=请上传正确格式的文件)]
-2020-11-26 11:22:57.385  INFO 4784 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 11:22:57.392  INFO 4784 --- [Thread-8] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:127}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 11:22:57.587  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 4784 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 11:22:57.587  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 11:22:57.782  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 11:22:57.817  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34ms. Found 3 MongoDB repository interfaces.
-2020-11-26 11:22:57.972  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 11:22:57.973  INFO 4784 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 11:22:57.973  INFO 4784 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 11:22:57.997  INFO 4784 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 11:22:57.997  INFO 4784 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 405 ms
-2020-11-26 11:22:58.019  INFO 4784 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 11:22:58.022  INFO 4784 --- [cluster-ClusterId{value='5fbf1f92df676a50ce864db9', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:128}] to 127.0.0.1:27017
-2020-11-26 11:22:58.024  INFO 4784 --- [cluster-ClusterId{value='5fbf1f92df676a50ce864db9', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=560500}
-2020-11-26 11:22:58.059  INFO 4784 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 11:22:58.071 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 11:22:58.075  INFO 4784 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:129}] to 127.0.0.1:27017
-2020-11-26 11:22:58.076 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 11:22:58.076 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 11:22:58.076 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 11:22:58.111  INFO 4784 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 11:22:58.274  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 11:22:58.277  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 0.736 seconds (JVM running for 126.534)
-2020-11-26 11:22:58.279  INFO 4784 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-26 11:23:25.616  INFO 4784 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 11:23:25.616  INFO 4784 --- [Thread-18] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:129}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 11:23:25.821  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 4784 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 11:23:25.822  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 11:23:26.011  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 11:23:26.041  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 3 MongoDB repository interfaces.
-2020-11-26 11:23:26.138  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 11:23:26.138  INFO 4784 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 11:23:26.138  INFO 4784 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 11:23:26.163  INFO 4784 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 11:23:26.164  INFO 4784 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 336 ms
-2020-11-26 11:23:26.185  INFO 4784 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 11:23:26.187  INFO 4784 --- [cluster-ClusterId{value='5fbf1faedf676a50ce864dba', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:130}] to 127.0.0.1:27017
-2020-11-26 11:23:26.189  INFO 4784 --- [cluster-ClusterId{value='5fbf1faedf676a50ce864dba', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=714300}
-2020-11-26 11:23:26.213  INFO 4784 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 11:23:26.230 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 11:23:26.233  INFO 4784 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:6, serverValue:131}] to 127.0.0.1:27017
-2020-11-26 11:23:26.234 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 11:23:26.234 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 11:23:26.234 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 11:23:26.273  INFO 4784 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 11:23:26.415  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 11:23:26.420  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 0.648 seconds (JVM running for 154.676)
-2020-11-26 11:23:26.422  INFO 4784 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-26 11:23:32.110  INFO 4784 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 11:23:32.110  INFO 4784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 11:23:32.122  INFO 4784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
-2020-11-26 11:23:32.132 DEBUG 4784 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:25:15.353  INFO 4784 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 11:25:15.354  INFO 4784 --- [Thread-23] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:6, serverValue:131}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 11:25:15.560  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 4784 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 11:25:15.561  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 11:25:15.735  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 11:25:15.771  INFO 4784 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35ms. Found 3 MongoDB repository interfaces.
-2020-11-26 11:25:15.915  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 11:25:15.916  INFO 4784 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 11:25:15.916  INFO 4784 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 11:25:15.940  INFO 4784 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 11:25:15.940  INFO 4784 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 376 ms
-2020-11-26 11:25:15.966  INFO 4784 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 11:25:15.969  INFO 4784 --- [cluster-ClusterId{value='5fbf201bdf676a50ce864dbb', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:132}] to 127.0.0.1:27017
-2020-11-26 11:25:15.972  INFO 4784 --- [cluster-ClusterId{value='5fbf201bdf676a50ce864dbb', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=786500}
-2020-11-26 11:25:16.012  INFO 4784 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 11:25:16.030 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 11:25:16.033  INFO 4784 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:8, serverValue:133}] to 127.0.0.1:27017
-2020-11-26 11:25:16.034 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 11:25:16.034 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 11:25:16.036 DEBUG 4784 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 11:25:16.071  INFO 4784 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 11:25:16.214  INFO 4784 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 11:25:16.217  INFO 4784 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 0.696 seconds (JVM running for 264.472)
-2020-11-26 11:25:16.218  INFO 4784 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-26 11:33:06.145  INFO 4784 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 11:33:06.146  INFO 4784 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:8, serverValue:133}] to 127.0.0.1:27017 because the pool has been closed.
-2020-11-26 11:35:16.779  INFO 14212 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on ZCG04000034 with PID 14212 (D:\do it\github_fetch\crud\tfe\target\classes started by ZCG04000034 in D:\do it\github_fetch\crud\tfe)
-2020-11-26 11:35:16.782  INFO 14212 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
-2020-11-26 11:35:16.851  INFO 14212 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-26 11:35:16.852  INFO 14212 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-26 11:35:17.496  INFO 14212 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-26 11:35:17.589  INFO 14212 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88ms. Found 3 MongoDB repository interfaces.
-2020-11-26 11:35:18.320  INFO 14212 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2020-11-26 11:35:18.331  INFO 14212 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-26 11:35:18.332  INFO 14212 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-26 11:35:18.440  INFO 14212 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
-2020-11-26 11:35:18.440  INFO 14212 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1588 ms
-2020-11-26 11:35:18.651  INFO 14212 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-26 11:35:18.710  INFO 14212 --- [cluster-ClusterId{value='5fbf227692f62f286502a5ff', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:134}] to 127.0.0.1:27017
-2020-11-26 11:35:18.715  INFO 14212 --- [cluster-ClusterId{value='5fbf227692f62f286502a5ff', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3386000}
-2020-11-26 11:35:18.969  INFO 14212 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-26 11:35:19.021 DEBUG 14212 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
-2020-11-26 11:35:19.022 DEBUG 14212 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
-2020-11-26 11:35:19.067  INFO 14212 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:135}] to 127.0.0.1:27017
-2020-11-26 11:35:19.078 DEBUG 14212 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
-2020-11-26 11:35:19.078 DEBUG 14212 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
-2020-11-26 11:35:19.257  INFO 14212 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
-2020-11-26 11:35:19.768  INFO 14212 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
-2020-11-26 11:35:19.780  INFO 14212 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 3.652 seconds (JVM running for 6.082)
-2020-11-26 11:35:33.081  INFO 14212 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-26 11:35:33.081  INFO 14212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-26 11:35:33.087  INFO 14212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-11-26 11:35:33.198 DEBUG 14212 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:36:39.514 DEBUG 14212 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:36:39.525  WARN 14212 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=请上传正确格式的文件)]
-2020-11-26 11:36:51.150 DEBUG 14212 --- [http-nio-8081-exec-3] o.s.data.mongodb.core.MongoTemplate      : find using query: { "username" : "admin123"} fields: Document{{}} for class: class com.cn.tfe.entity.User in collection: user
-2020-11-26 11:36:51.153  INFO 14212 --- [http-nio-8081-exec-3] c.cn.tfe.controller.MultipartController  : 248978
-2020-11-26 11:37:42.155  INFO 14212 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
-2020-11-26 11:37:42.158  INFO 14212 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:135}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:20:41.361  INFO 17440 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 17440 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:20:41.372  INFO 17440 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:20:41.531  INFO 17440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:20:41.532  INFO 17440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:20:42.954  INFO 17440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:20:43.180  INFO 17440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 214ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:20:44.367  INFO 17440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:20:44.381  INFO 17440 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:20:44.382  INFO 17440 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:20:44.529  INFO 17440 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:20:44.529  INFO 17440 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2996 ms
+2020-11-29 15:20:44.840  INFO 17440 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:20:44.954  INFO 17440 --- [cluster-ClusterId{value='5fc34bccca6e5f0916acc778', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:215}] to 127.0.0.1:27017
+2020-11-29 15:20:44.963  INFO 17440 --- [cluster-ClusterId{value='5fc34bccca6e5f0916acc778', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5595200}
+2020-11-29 15:20:45.330  INFO 17440 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:20:45.402 DEBUG 17440 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:20:45.477  INFO 17440 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:216}] to 127.0.0.1:27017
+2020-11-29 15:20:45.497 DEBUG 17440 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:20:45.501 DEBUG 17440 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:20:45.501 DEBUG 17440 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:20:45.756  INFO 17440 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:20:46.829  INFO 17440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:20:46.843  INFO 17440 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 6.386 seconds (JVM running for 8.51)
+2020-11-29 15:22:44.775  INFO 17440 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:22:44.787  INFO 17440 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:216}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:27:00.943  INFO 10840 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 10840 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:27:00.949  INFO 10840 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:27:01.061  INFO 10840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:27:01.061  INFO 10840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:27:01.884  INFO 10840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:27:01.992  INFO 10840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 101ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:27:02.926  INFO 10840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:27:02.943  INFO 10840 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:27:02.944  INFO 10840 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:27:03.081  INFO 10840 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:27:03.082  INFO 10840 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2020 ms
+2020-11-29 15:27:03.337  INFO 10840 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:27:03.432  INFO 10840 --- [cluster-ClusterId{value='5fc34d4781dc112970e43660', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:217}] to 127.0.0.1:27017
+2020-11-29 15:27:03.440  INFO 10840 --- [cluster-ClusterId{value='5fc34d4781dc112970e43660', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4804600}
+2020-11-29 15:27:03.737  INFO 10840 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:27:03.819 DEBUG 10840 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:27:03.819 DEBUG 10840 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:27:03.820 DEBUG 10840 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:27:03.883  INFO 10840 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:218}] to 127.0.0.1:27017
+2020-11-29 15:27:03.896 DEBUG 10840 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:27:04.133  INFO 10840 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:27:05.152  INFO 10840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:27:05.165  INFO 10840 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.327 seconds (JVM running for 7.177)
+2020-11-29 15:28:06.692  INFO 10840 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:28:06.701  INFO 10840 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:218}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:28:39.046  INFO 21316 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 21316 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:28:39.053  INFO 21316 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:28:39.203  INFO 21316 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:28:39.204  INFO 21316 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:28:40.199  INFO 21316 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:28:40.309  INFO 21316 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:28:41.242  INFO 21316 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:28:41.256  INFO 21316 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:28:41.256  INFO 21316 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:28:41.400  INFO 21316 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:28:41.400  INFO 21316 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2194 ms
+2020-11-29 15:28:41.670  INFO 21316 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:28:41.750  INFO 21316 --- [cluster-ClusterId{value='5fc34da976809872bc4b41ef', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:219}] to 127.0.0.1:27017
+2020-11-29 15:28:41.757  INFO 21316 --- [cluster-ClusterId{value='5fc34da976809872bc4b41ef', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4819600}
+2020-11-29 15:28:42.061  INFO 21316 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:28:42.142 DEBUG 21316 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:28:42.142 DEBUG 21316 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:28:42.207  INFO 21316 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:220}] to 127.0.0.1:27017
+2020-11-29 15:28:42.220 DEBUG 21316 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:28:42.223 DEBUG 21316 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:28:42.458  INFO 21316 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:28:43.521  INFO 21316 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:28:43.535  INFO 21316 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.604 seconds (JVM running for 7.639)
+2020-11-29 15:29:10.484  INFO 21316 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:29:10.490  INFO 21316 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:220}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:39:54.431  INFO 20764 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 20764 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:39:54.438  INFO 20764 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:39:54.574  INFO 20764 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:39:54.574  INFO 20764 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:39:55.489  WARN 20764 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'corsFilter' defined in class path resource [com/cn/tfe/config/InterceptorConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=interceptorConfig; factoryMethodName=corsFilter; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/cn/tfe/config/InterceptorConfig.class]] for bean 'corsFilter': There is already [Generic bean: class [com.cn.tfe.filter.CorsFilter]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [E:\project\git_fetch\tfe\tfe\target\classes\com\cn\tfe\filter\CorsFilter.class]] bound.
+2020-11-29 15:39:55.503  INFO 20764 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-29 15:39:55.509 ERROR 20764 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'corsFilter', defined in class path resource [com/cn/tfe/config/InterceptorConfig.class], could not be registered. A bean with that name has already been defined in file [E:\project\git_fetch\tfe\tfe\target\classes\com\cn\tfe\filter\CorsFilter.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2020-11-29 15:40:28.535  INFO 19876 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 19876 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:40:28.541  INFO 19876 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:40:28.657  INFO 19876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:40:28.658  INFO 19876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:40:29.634  INFO 19876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:40:29.850  INFO 19876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 205ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:40:31.280  INFO 19876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:40:31.302  INFO 19876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:40:31.303  INFO 19876 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:40:31.445  INFO 19876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:40:31.446  INFO 19876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2786 ms
+2020-11-29 15:40:35.422  INFO 19876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:40:35.505  INFO 19876 --- [cluster-ClusterId{value='5fc350734b969c6a83195404', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:221}] to 127.0.0.1:27017
+2020-11-29 15:40:35.514  INFO 19876 --- [cluster-ClusterId{value='5fc350734b969c6a83195404', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6070700}
+2020-11-29 15:40:35.844  INFO 19876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:40:35.940 DEBUG 19876 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:40:36.020  INFO 19876 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:222}] to 127.0.0.1:27017
+2020-11-29 15:40:36.038 DEBUG 19876 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:40:36.042 DEBUG 19876 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:40:36.042 DEBUG 19876 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:40:36.286  INFO 19876 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:40:41.263  INFO 19876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:40:41.275  INFO 19876 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 13.575 seconds (JVM running for 15.409)
+2020-11-29 15:41:05.881  INFO 19876 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:41:05.886  INFO 19876 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:222}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:41:18.588  INFO 21712 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 21712 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:41:18.595  INFO 21712 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:41:18.711  INFO 21712 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:41:18.712  INFO 21712 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:41:19.656  INFO 21712 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:41:19.977  INFO 21712 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 289ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:41:21.303  INFO 21712 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:41:21.317  INFO 21712 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:41:21.318  INFO 21712 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:41:21.456  INFO 21712 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:41:21.456  INFO 21712 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2743 ms
+2020-11-29 15:41:21.720  INFO 21712 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:41:21.803  INFO 21712 --- [cluster-ClusterId{value='5fc350a1d8b42c133c3e9a00', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:223}] to 127.0.0.1:27017
+2020-11-29 15:41:21.811  INFO 21712 --- [cluster-ClusterId{value='5fc350a1d8b42c133c3e9a00', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5090900}
+2020-11-29 15:41:22.120  INFO 21712 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:41:22.206 DEBUG 21712 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:41:22.269  INFO 21712 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:224}] to 127.0.0.1:27017
+2020-11-29 15:41:22.282 DEBUG 21712 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:41:22.283 DEBUG 21712 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:41:22.285 DEBUG 21712 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:41:22.507  INFO 21712 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:41:23.508  INFO 21712 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:41:23.520  INFO 21712 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.906 seconds (JVM running for 7.926)
+2020-11-29 15:41:44.280  INFO 21712 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:41:44.287  INFO 21712 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:224}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:42:01.562  INFO 12512 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 12512 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:42:01.568  INFO 12512 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:42:01.665  INFO 12512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:42:01.665  INFO 12512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:42:02.425  INFO 12512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:42:02.531  INFO 12512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:42:03.471  INFO 12512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:42:03.486  INFO 12512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:42:03.486  INFO 12512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:42:03.619  INFO 12512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:42:03.619  INFO 12512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1953 ms
+2020-11-29 15:42:03.884  INFO 12512 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:42:03.973  INFO 12512 --- [cluster-ClusterId{value='5fc350cb811ef1296a6e31d0', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:225}] to 127.0.0.1:27017
+2020-11-29 15:42:03.981  INFO 12512 --- [cluster-ClusterId{value='5fc350cb811ef1296a6e31d0', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5471500}
+2020-11-29 15:42:04.289  INFO 12512 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:42:04.371 DEBUG 12512 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:42:04.436  INFO 12512 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:226}] to 127.0.0.1:27017
+2020-11-29 15:42:04.449 DEBUG 12512 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:42:04.449 DEBUG 12512 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:42:04.450 DEBUG 12512 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:42:04.674  INFO 12512 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:42:05.667  INFO 12512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:42:05.679  INFO 12512 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.135 seconds (JVM running for 7.021)
+2020-11-29 15:51:14.146  INFO 13492 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 13492 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:51:14.153  INFO 13492 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:51:14.339  INFO 13492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:51:14.340  INFO 13492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:51:15.701  INFO 13492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:51:15.857  INFO 13492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:51:17.415  INFO 13492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:51:17.430  INFO 13492 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:51:17.431  INFO 13492 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:51:17.578  INFO 13492 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:51:17.578  INFO 13492 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3237 ms
+2020-11-29 15:51:17.878  INFO 13492 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:51:17.972  INFO 13492 --- [cluster-ClusterId{value='5fc352f5bed73521a933fcf4', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:227}] to 127.0.0.1:27017
+2020-11-29 15:51:17.981  INFO 13492 --- [cluster-ClusterId{value='5fc352f5bed73521a933fcf4', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4636200}
+2020-11-29 15:51:18.323  INFO 13492 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:51:18.407 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:51:18.407 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:51:18.407 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:51:18.471  INFO 13492 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:228}] to 127.0.0.1:27017
+2020-11-29 15:51:18.485 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:51:18.735  INFO 13492 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:51:19.831  INFO 13492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:51:19.843  INFO 13492 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 6.781 seconds (JVM running for 9.356)
+2020-11-29 15:54:50.176  INFO 13492 --- [Thread-17] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:54:50.181  INFO 13492 --- [Thread-17] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:228}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:54:50.521  INFO 13492 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 13492 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:54:50.522  INFO 13492 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:54:50.897  INFO 13492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:54:50.967  INFO 13492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:54:51.555  INFO 13492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:54:51.557  INFO 13492 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:54:51.558  INFO 13492 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:54:51.602  INFO 13492 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:54:51.603  INFO 13492 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1074 ms
+2020-11-29 15:54:51.734  INFO 13492 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:54:51.783  INFO 13492 --- [cluster-ClusterId{value='5fc353cbbed73521a933fcf5', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:229}] to 127.0.0.1:27017
+2020-11-29 15:54:51.786  INFO 13492 --- [cluster-ClusterId{value='5fc353cbbed73521a933fcf5', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=648900}
+2020-11-29 15:54:51.825  INFO 13492 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:54:51.867 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:54:51.867 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:54:51.868 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:54:51.873  INFO 13492 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:230}] to 127.0.0.1:27017
+2020-11-29 15:54:51.875 DEBUG 13492 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:54:51.942  INFO 13492 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:54:52.604  INFO 13492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:54:52.612  INFO 13492 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 2.149 seconds (JVM running for 222.126)
+2020-11-29 15:54:52.616  INFO 13492 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-11-29 15:55:40.598  INFO 13492 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:55:40.599  INFO 13492 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:230}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:55:56.220  INFO 9204 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 9204 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:55:56.226  INFO 9204 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:55:56.413  INFO 9204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:55:56.413  INFO 9204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:55:57.340  INFO 9204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:55:57.459  INFO 9204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:55:58.421  INFO 9204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (https)
+2020-11-29 15:55:58.435  INFO 9204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:55:58.436  INFO 9204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:55:58.581  INFO 9204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:55:58.582  INFO 9204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2167 ms
+2020-11-29 15:55:58.846  INFO 9204 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:55:58.932  INFO 9204 --- [cluster-ClusterId{value='5fc3540e82a4337e7448b6f0', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:231}] to 127.0.0.1:27017
+2020-11-29 15:55:58.941  INFO 9204 --- [cluster-ClusterId{value='5fc3540e82a4337e7448b6f0', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5672900}
+2020-11-29 15:55:59.254  INFO 9204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:55:59.337 DEBUG 9204 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:55:59.338 DEBUG 9204 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:55:59.338 DEBUG 9204 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:55:59.403  INFO 9204 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:232}] to 127.0.0.1:27017
+2020-11-29 15:55:59.417 DEBUG 9204 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:55:59.677  INFO 9204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:56:00.742  INFO 9204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (https) with context path '/tfe'
+2020-11-29 15:56:00.754  INFO 9204 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.625 seconds (JVM running for 7.478)
+2020-11-29 15:56:53.287  INFO 9204 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:56:53.295  INFO 9204 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:232}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:57:02.429  INFO 7484 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 7484 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:57:02.437  INFO 7484 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:57:02.567  INFO 7484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:57:02.568  INFO 7484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:57:03.480  INFO 7484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:57:03.608  INFO 7484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:57:04.880  INFO 7484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-11-29 15:57:04.899  INFO 7484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:57:04.899  INFO 7484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:57:05.138  INFO 7484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:57:05.138  INFO 7484 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2569 ms
+2020-11-29 15:57:05.633  INFO 7484 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:57:05.796  INFO 7484 --- [cluster-ClusterId{value='5fc354517dfa532c6d3d0363', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:233}] to 127.0.0.1:27017
+2020-11-29 15:57:05.805  INFO 7484 --- [cluster-ClusterId{value='5fc354517dfa532c6d3d0363', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5873600}
+2020-11-29 15:57:06.276  INFO 7484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:57:06.364 DEBUG 7484 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:57:06.364 DEBUG 7484 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:57:06.364 DEBUG 7484 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:57:06.434  INFO 7484 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:234}] to 127.0.0.1:27017
+2020-11-29 15:57:06.449 DEBUG 7484 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:57:06.747  INFO 7484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:57:07.313  INFO 7484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
+2020-11-29 15:57:07.325  INFO 7484 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.897 seconds (JVM running for 7.786)
+2020-11-29 15:57:10.400  INFO 7484 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-29 15:57:10.401  INFO 7484 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-29 15:57:10.412  INFO 7484 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-11-29 15:57:10.542 DEBUG 7484 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "id" : "123"} fields: Document{{}} for class: class com.cn.tfe.entity.Vocabu in collection: vocabulary
+2020-11-29 15:57:10.553 DEBUG 7484 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "_id" : "123"} fields: {} in db.collection: testdb.vocabulary
+2020-11-29 15:57:10.725  WARN 7484 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=不存在的id)]
+2020-11-29 15:57:19.125 DEBUG 7484 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "id" : "123"} fields: Document{{}} for class: class com.cn.tfe.entity.Vocabu in collection: vocabulary
+2020-11-29 15:57:19.127 DEBUG 7484 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "_id" : "123"} fields: {} in db.collection: testdb.vocabulary
+2020-11-29 15:57:19.131  WARN 7484 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=不存在的id)]
+2020-11-29 15:57:30.828  INFO 7484 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:57:30.833  INFO 7484 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:234}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:58:01.281  INFO 6564 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 6564 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:58:01.287  INFO 6564 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:58:01.418  INFO 6564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 15:58:01.419  INFO 6564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 15:58:02.457  INFO 6564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:58:02.651  INFO 6564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 184ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:58:04.028  INFO 6564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-11-29 15:58:04.042  INFO 6564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:58:04.042  INFO 6564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:58:04.198  INFO 6564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:58:04.198  INFO 6564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2778 ms
+2020-11-29 15:58:04.453  INFO 6564 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:58:04.539  INFO 6564 --- [cluster-ClusterId{value='5fc3548cc80c885eb84817fd', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:235}] to 127.0.0.1:27017
+2020-11-29 15:58:04.547  INFO 6564 --- [cluster-ClusterId{value='5fc3548cc80c885eb84817fd', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5592100}
+2020-11-29 15:58:04.856  INFO 6564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:58:04.939 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:58:04.940 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:58:05.006  INFO 6564 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:236}] to 127.0.0.1:27017
+2020-11-29 15:58:05.019 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:58:05.019 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:58:05.281  INFO 6564 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:58:05.867  INFO 6564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
+2020-11-29 15:58:05.880  INFO 6564 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 5.498 seconds (JVM running for 7.909)
+2020-11-29 15:58:15.197  INFO 6564 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-29 15:58:15.198  INFO 6564 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-29 15:58:15.213  INFO 6564 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-11-29 15:58:15.446  WARN 6564 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
+2020-11-29 15:59:43.305  INFO 6564 --- [Thread-15] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 15:59:43.311  INFO 6564 --- [Thread-15] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:236}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 15:59:43.620  INFO 6564 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 6564 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 15:59:43.621  INFO 6564 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 15:59:43.901  INFO 6564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 15:59:43.966  INFO 6564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63ms. Found 3 MongoDB repository interfaces.
+2020-11-29 15:59:44.353  INFO 6564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-11-29 15:59:44.354  INFO 6564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 15:59:44.355  INFO 6564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 15:59:44.397  INFO 6564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 15:59:44.397  INFO 6564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 769 ms
+2020-11-29 15:59:44.451  INFO 6564 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 15:59:44.462  INFO 6564 --- [cluster-ClusterId{value='5fc354f0c80c885eb84817fe', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:237}] to 127.0.0.1:27017
+2020-11-29 15:59:44.465  INFO 6564 --- [cluster-ClusterId{value='5fc354f0c80c885eb84817fe', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=753800}
+2020-11-29 15:59:44.500  INFO 6564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 15:59:44.525 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 15:59:44.530  INFO 6564 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:238}] to 127.0.0.1:27017
+2020-11-29 15:59:44.531 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 15:59:44.535 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 15:59:44.535 DEBUG 6564 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 15:59:44.619  INFO 6564 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 15:59:45.145  INFO 6564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
+2020-11-29 15:59:45.153  INFO 6564 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 1.591 seconds (JVM running for 107.182)
+2020-11-29 15:59:45.156  INFO 6564 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-11-29 15:59:50.603  INFO 6564 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-29 15:59:50.604  INFO 6564 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-29 15:59:50.610  INFO 6564 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-11-29 15:59:50.723 DEBUG 6564 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "id" : "123"} fields: Document{{}} for class: class com.cn.tfe.entity.Vocabu in collection: vocabulary
+2020-11-29 15:59:50.735 DEBUG 6564 --- [http-nio-8081-exec-1] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "_id" : "123"} fields: {} in db.collection: testdb.vocabulary
+2020-11-29 15:59:50.771  WARN 6564 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=不存在的id)]
+2020-11-29 15:59:59.994 DEBUG 6564 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "id" : "123"} fields: Document{{}} for class: class com.cn.tfe.entity.Vocabu in collection: vocabulary
+2020-11-29 15:59:59.995 DEBUG 6564 --- [http-nio-8081-exec-2] o.s.data.mongodb.core.MongoTemplate      : findOne using query: { "_id" : "123"} fields: {} in db.collection: testdb.vocabulary
+2020-11-29 15:59:59.998  WARN 6564 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=不存在的id)]
+2020-11-29 16:00:10.129  INFO 6564 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 16:00:10.130  INFO 6564 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:238}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 16:00:20.627  INFO 11844 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 11844 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 16:00:20.635  INFO 11844 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 16:00:20.791  INFO 11844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 16:00:20.792  INFO 11844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 16:00:21.935  INFO 11844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 16:00:22.228  INFO 11844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 244ms. Found 3 MongoDB repository interfaces.
+2020-11-29 16:00:23.911  INFO 11844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-11-29 16:00:23.928  INFO 11844 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 16:00:23.929  INFO 11844 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 16:00:24.093  INFO 11844 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 16:00:24.093  INFO 11844 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3300 ms
+2020-11-29 16:00:24.494  INFO 11844 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 16:00:24.615  INFO 11844 --- [cluster-ClusterId{value='5fc3551881f7fd5cbdafa517', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:239}] to 127.0.0.1:27017
+2020-11-29 16:00:24.627  INFO 11844 --- [cluster-ClusterId{value='5fc3551881f7fd5cbdafa517', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9430100}
+2020-11-29 16:00:24.975  INFO 11844 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 16:00:25.079 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 16:00:25.155  INFO 11844 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:240}] to 127.0.0.1:27017
+2020-11-29 16:00:25.171 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 16:00:25.178 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 16:00:25.178 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 16:00:25.500  INFO 11844 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 16:00:26.263  INFO 11844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
+2020-11-29 16:00:26.278  INFO 11844 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 6.628 seconds (JVM running for 9.047)
+2020-11-29 16:00:34.691  INFO 11844 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-29 16:00:34.691  INFO 11844 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-29 16:00:34.701  INFO 11844 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-11-29 16:00:34.998  WARN 11844 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
+2020-11-29 16:06:25.477  INFO 11844 --- [Thread-17] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 16:06:25.486  INFO 11844 --- [Thread-17] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:240}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 16:06:25.862  INFO 11844 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 11844 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 16:06:25.862  INFO 11844 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 16:06:26.432  INFO 11844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 16:06:26.536  INFO 11844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 101ms. Found 3 MongoDB repository interfaces.
+2020-11-29 16:06:27.000  INFO 11844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-11-29 16:06:27.010  INFO 11844 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 16:06:27.012  INFO 11844 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 16:06:27.120  INFO 11844 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 16:06:27.120  INFO 11844 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1251 ms
+2020-11-29 16:06:27.178  INFO 11844 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 16:06:27.193  INFO 11844 --- [cluster-ClusterId{value='5fc3568381f7fd5cbdafa518', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:241}] to 127.0.0.1:27017
+2020-11-29 16:06:27.198  INFO 11844 --- [cluster-ClusterId{value='5fc3568381f7fd5cbdafa518', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2447100}
+2020-11-29 16:06:27.225  INFO 11844 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 16:06:27.266 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 16:06:27.266 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 16:06:27.272  INFO 11844 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:242}] to 127.0.0.1:27017
+2020-11-29 16:06:27.273 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 16:06:27.274 DEBUG 11844 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 16:06:27.347  INFO 11844 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 16:06:27.747  INFO 11844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
+2020-11-29 16:06:27.768  INFO 11844 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 1.972 seconds (JVM running for 370.536)
+2020-11-29 16:06:27.773  INFO 11844 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-11-29 16:09:03.236  INFO 10884 --- [restartedMain] com.cn.tfe.TfeApplication                : Starting TfeApplication on DESKTOP-M9BIDUM with PID 10884 (E:\project\git_fetch\tfe\tfe\target\classes started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 16:09:03.242  INFO 10884 --- [restartedMain] com.cn.tfe.TfeApplication                : No active profile set, falling back to default profiles: default
+2020-11-29 16:09:03.394  INFO 10884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-29 16:09:03.396  INFO 10884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-29 16:09:04.810  INFO 10884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 16:09:04.980  INFO 10884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 160ms. Found 3 MongoDB repository interfaces.
+2020-11-29 16:09:06.832  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-11-29 16:09:06.858  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-29 16:09:06.858  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-29 16:09:07.236  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring embedded WebApplicationContext
+2020-11-29 16:09:07.237  INFO 10884 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3840 ms
+2020-11-29 16:09:08.025  INFO 10884 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 16:09:08.253  INFO 10884 --- [cluster-ClusterId{value='5fc35724a88268355c4ce7ea', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:243}] to 127.0.0.1:27017
+2020-11-29 16:09:08.268  INFO 10884 --- [cluster-ClusterId{value='5fc35724a88268355c4ce7ea', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10291200}
+2020-11-29 16:09:08.803  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-29 16:09:08.871 DEBUG 10884 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 16:09:08.872 DEBUG 10884 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 16:09:08.941  INFO 10884 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:244}] to 127.0.0.1:27017
+2020-11-29 16:09:08.954 DEBUG 10884 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 16:09:08.954 DEBUG 10884 --- [restartedMain] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 16:09:09.197  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 16:09:09.753  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/tfe'
+2020-11-29 16:09:09.766  INFO 10884 --- [restartedMain] com.cn.tfe.TfeApplication                : Started TfeApplication in 8.059 seconds (JVM running for 10.321)
+2020-11-29 16:10:27.093  INFO 10884 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/tfe]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-29 16:10:27.093  INFO 10884 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-29 16:10:27.106  INFO 10884 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-11-29 16:10:56.582  WARN 10884 --- [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [CustomException(msg=无token，请重新登录)]
+2020-11-29 16:11:21.896  INFO 10884 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 16:11:21.902  INFO 10884 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:244}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 17:28:47.300  INFO 5856 --- [main] com.cn.tfe.TfeApplicationTests           : Starting TfeApplicationTests on DESKTOP-M9BIDUM with PID 5856 (started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 17:28:47.304  INFO 5856 --- [main] com.cn.tfe.TfeApplicationTests           : No active profile set, falling back to default profiles: default
+2020-11-29 17:28:48.745  INFO 5856 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 17:28:48.979  INFO 5856 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 219ms. Found 3 MongoDB repository interfaces.
+2020-11-29 17:28:50.593  INFO 5856 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 17:28:50.843  INFO 5856 --- [cluster-ClusterId{value='5fc369d2389a21237aeb304d', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:245}] to 127.0.0.1:27017
+2020-11-29 17:28:50.853  INFO 5856 --- [cluster-ClusterId{value='5fc369d2389a21237aeb304d', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6272700}
+2020-11-29 17:28:51.355 DEBUG 5856 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 17:28:51.355 DEBUG 5856 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 17:28:51.459  INFO 5856 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:246}] to 127.0.0.1:27017
+2020-11-29 17:28:51.480 DEBUG 5856 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 17:28:51.480 DEBUG 5856 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 17:28:51.947  INFO 5856 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 17:28:53.744  INFO 5856 --- [main] com.cn.tfe.TfeApplicationTests           : Started TfeApplicationTests in 7.114 seconds (JVM running for 9.582)
+2020-11-29 17:28:54.465  INFO 5856 --- [main] com.cn.tfe.ChineseTest                   : n? sh�� y�� g�� d�� h?o r��n 
+2020-11-29 17:28:54.483  INFO 5856 --- [main] com.cn.tfe.JsonTest                      : true
+2020-11-29 17:28:54.520  INFO 5856 --- [main] com.cn.tfe.JsonTest                      : [CommonRes(dst=С��, phonetic=xiao gou, dstTts=http://, word=paddy)]
+2020-11-29 17:28:54.532  INFO 5856 --- [main] com.cn.tfe.JsonTest                      : true
+2020-11-29 17:28:54.578  INFO 5856 --- [main] com.cn.tfe.StringTest                    : 8
+2020-11-29 17:28:54.580  INFO 5856 --- [main] com.cn.tfe.StringTest                    : 123,234]
+2020-11-29 17:28:54.635  INFO 5856 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 17:28:54.645  INFO 5856 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:246}] to 127.0.0.1:27017 because the pool has been closed.
+2020-11-29 17:47:48.904  INFO 21616 --- [main] com.cn.tfe.TfeApplicationTests           : Starting TfeApplicationTests on DESKTOP-M9BIDUM with PID 21616 (started by hzy in E:\project\git_fetch\tfe\tfe)
+2020-11-29 17:47:48.907  INFO 21616 --- [main] com.cn.tfe.TfeApplicationTests           : No active profile set, falling back to default profiles: default
+2020-11-29 17:47:50.972  INFO 21616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-11-29 17:47:51.189  INFO 21616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 203ms. Found 3 MongoDB repository interfaces.
+2020-11-29 17:47:53.042  INFO 21616 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-11-29 17:47:53.393  INFO 21616 --- [cluster-ClusterId{value='5fc36e49c291f418214b9ec3', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:247}] to 127.0.0.1:27017
+2020-11-29 17:47:53.412  INFO 21616 --- [cluster-ClusterId{value='5fc36e49c291f418214b9ec3', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7986100}
+2020-11-29 17:47:53.992 DEBUG 21616 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.User for index information.
+2020-11-29 17:47:54.087  INFO 21616 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:248}] to 127.0.0.1:27017
+2020-11-29 17:47:54.107 DEBUG 21616 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.CommonRes for index information.
+2020-11-29 17:47:54.108 DEBUG 21616 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.AdverLink for index information.
+2020-11-29 17:47:54.108 DEBUG 21616 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Analyzing class class com.cn.tfe.entity.Vocabu for index information.
+2020-11-29 17:47:54.477  INFO 21616 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2020-11-29 17:47:56.690  INFO 21616 --- [main] com.cn.tfe.TfeApplicationTests           : Started TfeApplicationTests in 9.206 seconds (JVM running for 13.585)
+2020-11-29 17:47:57.390  INFO 21616 --- [main] com.cn.tfe.ChineseTest                   : n? sh�� y�� g�� d�� h?o r��n 
+2020-11-29 17:47:57.417  INFO 21616 --- [main] com.cn.tfe.JsonTest                      : true
+2020-11-29 17:47:57.468  INFO 21616 --- [main] com.cn.tfe.JsonTest                      : [CommonRes(dst=С��, phonetic=xiao gou, dstTts=http://, word=paddy)]
+2020-11-29 17:47:57.485  INFO 21616 --- [main] com.cn.tfe.JsonTest                      : true
+2020-11-29 17:47:57.541  INFO 21616 --- [main] com.cn.tfe.StringTest                    : 8
+2020-11-29 17:47:57.547  INFO 21616 --- [main] com.cn.tfe.StringTest                    : 123,234]
+2020-11-29 17:47:57.609  INFO 21616 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'taskExecutor'
+2020-11-29 17:47:57.616  INFO 21616 --- [SpringContextShutdownHook] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:248}] to 127.0.0.1:27017 because the pool has been closed.
