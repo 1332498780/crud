@@ -315,20 +315,27 @@ public class VocabuController {
         StringBuilder sb = new StringBuilder("[");
         int count = 0;
         //英文最长单词45个字母 pneumonoultramicroscopicsilicovolcanoconiosis [肺尘病]
-        String regexStr = "^[a-z]{1,45}$";
+//        String regexStr = "^[a-z]{1,45}$";
         for(String word:source){
             String lowwer = word.trim().toLowerCase();
-            if(lowwer.matches(regexStr)){
+            String replaceStr = lowwer.replaceAll("[^a-z|\\s]*","");
+            if(replaceStr.length()>0){
                 res.add(lowwer);
             }else{
                 count++;
-                sb.append(word).append(",");
+                sb.append(word).append('\n');
             }
+//            if(lowwer.matches(regexStr)){
+//                res.add(lowwer);
+//            }else{
+//                count++;
+//                sb.append(word).append(",");
+//            }
         }
-        if(sb.toString().endsWith(",")){
-            // 注意不能写成 sb.replace(len-1,len-1,"]") 头尾相等的话，会多添加一个"]"在","之前
-            sb.replace(sb.length()-1,sb.length(),"]");
-        }
+//        if(sb.toString().endsWith(",")){
+//            // 注意不能写成 sb.replace(len-1,len-1,"]") 头尾相等的话，会多添加一个"]"在","之前
+//            sb.replace(sb.length()-1,sb.length(),"]");
+//        }
         log.info("cleaning data ("+count+"/"+source.size()+"): "+sb.toString());
         return res;
     }

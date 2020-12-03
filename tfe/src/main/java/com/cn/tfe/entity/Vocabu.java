@@ -1,6 +1,7 @@
 package com.cn.tfe.entity;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -14,7 +15,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @ToString
 @Document(collection = "vocabulary")
 public class Vocabu {
@@ -49,5 +50,7 @@ public class Vocabu {
 
     @LastModifiedDate
     private Date lastModifyTime;
+
+    private int fromTo;
 
 }
