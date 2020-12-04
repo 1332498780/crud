@@ -81,7 +81,7 @@ public class MultipartController {
 
     /***
      * 把文件保存在服务器本地目录并返回新的文件名
-     * @param suffix 以 .开头; ep: .jpg .png
+     * @param suffix 以 .开头; e.g.: .jpg .png
      * @param multipartFile
      * @return
      */

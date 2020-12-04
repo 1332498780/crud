@@ -19,22 +19,19 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
     MongoOperations mongo;
 
     @Override
-    public ResponsePage<List<Vocabu>> findByWordAndDict(String word, String dst, int page, int size) {
+    public ResponsePage<List<Vocabu>> findByWordAndDict(String word, String dst,int fromTo, int page, int size) {
         long skip = 0l;
         if(page > 0){
             skip = size*page;
         }
-        Criteria criteria = null;
+        Criteria criteria = Criteria.where("fromTo").is(fromTo);
         if(!StringUtils.isEmpty(word)){
-            criteria = Criteria.where("word").is(word);
+            criteria = criteria.and("word").is(word);
         }
         if(!StringUtils.isEmpty(dst)){
             dst = ".*"+dst+".*";
-            if(criteria == null){
-                criteria = Criteria.where("transRes.dst").regex(Pattern.compile(dst));
-            }else{
-                criteria = criteria.and("transRes.dst").regex(Pattern.compile(dst));
-            }
+            criteria = criteria.and("transRes.dst").regex(Pattern.compile(dst));
+
         }
         Query queryCount = new Query(criteria);
         Query queryData = new Query(criteria).limit(size).skip(skip);

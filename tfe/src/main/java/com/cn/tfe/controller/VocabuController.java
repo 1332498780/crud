@@ -3,6 +3,7 @@ package com.cn.tfe.controller;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.write.metadata.WriteSheet;
+import com.cn.tfe.commons.TransferLanguage;
 import com.cn.tfe.dto.VocabuDto;
 import com.cn.tfe.emums.Language;
 import com.cn.tfe.entity.CommonRes;
@@ -29,6 +30,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.*;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
@@ -59,21 +61,46 @@ public class VocabuController {
     private String securityKey;
 
     @PassToken
-    @PostMapping("/page")
-    public ResponseData<List<Vocabu>> getPageList(@RequestBody RequestPageData<VocabuFilterParam> requestPageData){
+    @PostMapping("/page/{from}/{to}")
+    public ResponseData<List<Vocabu>> getPageList(
+            @PathVariable(name="from",required = false) String from,
+            @PathVariable(name="to",required = false) String to,
+            @RequestBody RequestPageData<VocabuFilterParam> requestPageData){
+        int fromTo = getFromTo(from,to);
+
         if(requestPageData.getData()==null){
             Page<Vocabu> pageData = vocabuMongoRepository.findAll(requestPageData.pgData());
+            Vocabu vocabu = Vocabu.builder().fromTo(fromTo).build();
+            ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("fromTo",match ->match.exact());
+            Example<Vocabu> example = Example.of(vocabu,matcher);
+            vocabuMongoRepository.findAll(example,requestPageData.pgData());
             return ResponsePage.page(pageData);
         }
         VocabuFilterParam param = requestPageData.getData();
         String word = param.getWord();
         String dst = param.getDst();
-        return  vocabuMongoRepository.findByWordAndDict(word,dst,requestPageData.getPage(),requestPageData.getSize());
+        return  vocabuMongoRepository.findByWordAndDict(word,dst,fromTo,requestPageData.getPage(),requestPageData.getSize());
     }
 
-    @PostMapping("/add")
-    public ResponseData addVocabu(@RequestBody Vocabu vocabu){
-        vocabu.setWord(vocabu.getWord().toLowerCase());
+    @PostMapping("/add/{from}/{to}")
+    public ResponseData addVocabu(
+            @PathVariable(name="from",required = false) String from,
+            @PathVariable(name="to",required = false) String to,
+            @RequestBody Vocabu vocabu){
+        if(!TransferLanguage.tryBuild(from, to)){
+            throw new CustomException("不支持该语种：from:"+from+",to:"+to);
+        }
+        TransferLanguage transferLanguage = TransferLanguage.build(from,to);
+        String word = vocabu.getWord();
+        if(StringUtils.isEmpty(word)){
+            throw new CustomException("非法的单词："+word);
+        }
+        word = transferLanguage.getFrom().lowAndReplace(word);
+        if(!transferLanguage.getFrom().isValid(word)){
+            throw new CustomException("语种:"+from+"与单词"+word+"不匹配!!!");
+        }
+        vocabu.setWord(word);
+        vocabu.setFromTo(transferLanguage.getFromToVal());
         Vocabu savedVocabu = vocabuMongoRepository.insert(vocabu);
         if(savedVocabu != null && savedVocabu.getId()!=null){
             return ResponseData.SUCCESS;
@@ -349,5 +376,13 @@ public class VocabuController {
         }
         EasyExcel.read(multipartFile.getInputStream(),VocabuDto.class,new DemoDataListener<Vocabu,VocabuDto,String>(vocabuMongoRepository,Vocabu.class)).sheet().doRead();
         return ResponseData.SUCCESS;
+    }
+
+    private int getFromTo(String from,String to){
+        if(!TransferLanguage.tryBuild(from, to)){
+            throw new CustomException("不支持该语种：from:"+from+",to:"+to);
+        }
+        TransferLanguage transferLanguage = TransferLanguage.build(from,to);
+        return transferLanguage.getFromToVal();
     }
 }
