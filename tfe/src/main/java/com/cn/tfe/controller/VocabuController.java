@@ -157,114 +157,125 @@ public class VocabuController {
         throw new CustomException("更新单词失败");
     }
 
-    @PassToken
-    @GetMapping("getTemplate")
-    public void getRemplate(@RequestParam("param") String  requestParam,
-        HttpServletResponse response
-    ) throws IOException {
-        long startTime = System.currentTimeMillis();
-        log.info("writeBatch start >>> "+startTime);
+//    @PassToken
+//    @GetMapping("getTemplate/{from}/{to}")
+//    public void getRemplate(
+//            @PathVariable(name="from",required = false) String from,
+//            @PathVariable(name="to",required = false) String to,
+//            @RequestParam("param") String  requestParam,
+//        HttpServletResponse response
+//    ) throws IOException {
+//        if(!TransferLanguage.tryBuild(from, to)){
+//            throw new CustomException("不支持该语种：from:"+from+",to:"+to);
+//        }
+//        if(StringUtils.isEmpty(requestParam)){
+//            throw new CustomException("param不能为空！！");
+//        }
+//        long startTime = System.currentTimeMillis();
+//        log.info("writeBatch start >>> "+startTime);
+//
+//        TransferLanguage transferLanguage = TransferLanguage.build(from,to);
+//
+//        String[] params = requestParam.split(",");
+//        List<String> paramList = Arrays.asList(params);
+//        Map<String,List<String>> map = new HashMap<>();
+//        map.put("param",paramList);
+//
+//        response.setContentType("application/vnd.ms-excel");
+//        response.setCharacterEncoding("utf-8");
+//        // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
+//        String fileName = URLEncoder.encode("导入模板", "UTF-8").replaceAll("\\+", "%20");
+//        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
+//
+//        ExcelWriter excelWriter = EasyExcel.write(response.getOutputStream(), VocabuDto.class).autoCloseStream(Boolean.FALSE).build();
+//        WriteSheet writeSheet = EasyExcel.writerSheet("模板").build();
+//        try {
+//            preHandle(map, data -> {
+//                List<VocabuDto> list = new ArrayList<>(data.size());
+//                for (Object obj : data) {
+//                    Vocabu vocabu = (Vocabu) obj;
+//                    VocabuDto vocabuDto = new VocabuDto();
+//                    BeanUtils.copyProperties(vocabu, vocabuDto);
+//                    list.add(vocabuDto);
+//                }
+//                excelWriter.write(list, writeSheet);
+//            });
+//        }catch (Exception e){
+//            // 重置response
+//            response.reset();
+//            response.setContentType("application/json");
+//            response.setCharacterEncoding("utf-8");
+//            response.getWriter().println("{\"code\":500,data:\""+e.getMessage()+"\"}");
+//        }finally {
+//            if (excelWriter != null) {
+//                excelWriter.finish();
+//            }
+//            long endTime = System.currentTimeMillis();
+//            log.info("writeBatch end >>> "+endTime);
+//            log.info("totally cost "+((endTime - startTime)/1000) +" s ");
+//        }
+//    }
 
-        String[] params = requestParam.split(",");
-        List<String> paramList = Arrays.asList(params);
-        Map<String,List<String>> map = new HashMap<>();
-        map.put("param",paramList);
 
-        response.setContentType("application/vnd.ms-excel");
-        response.setCharacterEncoding("utf-8");
-        // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
-        String fileName = URLEncoder.encode("导入模板", "UTF-8").replaceAll("\\+", "%20");
-        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
+//    @PostMapping("getTemplate")
+//    public void getRemplate(@RequestBody Map<String,List<String>>  requestParam,
+//                            HttpServletResponse response
+//    ) throws IOException {
+//        long startTime = System.currentTimeMillis();
+//        log.info("writeBatch start >>> "+startTime);
+//
+//        response.setContentType("application/vnd.ms-excel");
+//        response.setCharacterEncoding("utf-8");
+//        // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
+//        String fileName = URLEncoder.encode("导入模板", "UTF-8").replaceAll("\\+", "%20");
+//        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
+//
+//        ExcelWriter excelWriter = EasyExcel.write(response.getOutputStream(), VocabuDto.class).autoCloseStream(Boolean.FALSE).build();
+//        WriteSheet writeSheet = EasyExcel.writerSheet("模板").build();
+//        try {
+//            preHandle(requestParam, data -> {
+//                List<VocabuDto> list = new ArrayList<>(data.size());
+//                for (Object obj : data) {
+//                    Vocabu vocabu = (Vocabu) obj;
+//                    VocabuDto vocabuDto = new VocabuDto();
+//                    BeanUtils.copyProperties(vocabu, vocabuDto);
+//                    list.add(vocabuDto);
+//                }
+//                excelWriter.write(list, writeSheet);
+//            });
+//        }catch (Exception e){
+//            // 重置response
+//            response.reset();
+//            response.setContentType("application/json");
+//            response.setCharacterEncoding("utf-8");
+//            response.getWriter().println("{\"code\":500,data:\""+e.getMessage()+"\"}");
+//        }finally {
+//            if (excelWriter != null) {
+//                excelWriter.finish();
+//            }
+//            long endTime = System.currentTimeMillis();
+//            log.info("writeBatch end >>> "+endTime);
+//            log.info("totally cost "+((endTime - startTime)/1000) +" s ");
+//        }
+//    }
 
-        ExcelWriter excelWriter = EasyExcel.write(response.getOutputStream(), VocabuDto.class).autoCloseStream(Boolean.FALSE).build();
-        WriteSheet writeSheet = EasyExcel.writerSheet("模板").build();
-        try {
-            preHandle(map, data -> {
-                List<VocabuDto> list = new ArrayList<>(data.size());
-                for (Object obj : data) {
-                    Vocabu vocabu = (Vocabu) obj;
-                    VocabuDto vocabuDto = new VocabuDto();
-                    BeanUtils.copyProperties(vocabu, vocabuDto);
-                    list.add(vocabuDto);
-                }
-                excelWriter.write(list, writeSheet);
-            });
-        }catch (Exception e){
-            // 重置response
-            response.reset();
-            response.setContentType("application/json");
-            response.setCharacterEncoding("utf-8");
-            response.getWriter().println("{\"code\":500,data:\""+e.getMessage()+"\"}");
-        }finally {
-            if (excelWriter != null) {
-                excelWriter.finish();
-            }
-            long endTime = System.currentTimeMillis();
-            log.info("writeBatch end >>> "+endTime);
-            log.info("totally cost "+((endTime - startTime)/1000) +" s ");
-        }
-    }
+//    @PostMapping("writeBatch")
+//    public ResponseData writeBatch(@RequestBody Map<String,List<String>>  requestParam,
+//                                         HttpServletResponse response
+//    ) throws IOException {
+//        long startTime = System.currentTimeMillis();
+//        log.info("writeBatch start >>> "+startTime);
+//
+//        preHandle(requestParam, data -> {
+//            vocabuMongoRepository.insert(data);
+//        });
+//        long endTime = System.currentTimeMillis();
+//        log.info("writeBatch end >>> "+endTime);
+//        log.info("totally cost "+((endTime - startTime)/1000) +" s ");
+//        return ResponseData.SUCCESS;
+//    }
 
-
-    @PostMapping("getTemplate")
-    public void getRemplate(@RequestBody Map<String,List<String>>  requestParam,
-                            HttpServletResponse response
-    ) throws IOException {
-        long startTime = System.currentTimeMillis();
-        log.info("writeBatch start >>> "+startTime);
-
-        response.setContentType("application/vnd.ms-excel");
-        response.setCharacterEncoding("utf-8");
-        // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
-        String fileName = URLEncoder.encode("导入模板", "UTF-8").replaceAll("\\+", "%20");
-        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
-
-        ExcelWriter excelWriter = EasyExcel.write(response.getOutputStream(), VocabuDto.class).autoCloseStream(Boolean.FALSE).build();
-        WriteSheet writeSheet = EasyExcel.writerSheet("模板").build();
-        try {
-            preHandle(requestParam, data -> {
-                List<VocabuDto> list = new ArrayList<>(data.size());
-                for (Object obj : data) {
-                    Vocabu vocabu = (Vocabu) obj;
-                    VocabuDto vocabuDto = new VocabuDto();
-                    BeanUtils.copyProperties(vocabu, vocabuDto);
-                    list.add(vocabuDto);
-                }
-                excelWriter.write(list, writeSheet);
-            });
-        }catch (Exception e){
-            // 重置response
-            response.reset();
-            response.setContentType("application/json");
-            response.setCharacterEncoding("utf-8");
-            response.getWriter().println("{\"code\":500,data:\""+e.getMessage()+"\"}");
-        }finally {
-            if (excelWriter != null) {
-                excelWriter.finish();
-            }
-            long endTime = System.currentTimeMillis();
-            log.info("writeBatch end >>> "+endTime);
-            log.info("totally cost "+((endTime - startTime)/1000) +" s ");
-        }
-    }
-
-    @PostMapping("writeBatch")
-    public ResponseData writeBatch(@RequestBody Map<String,List<String>>  requestParam,
-                                         HttpServletResponse response
-    ) throws IOException {
-        long startTime = System.currentTimeMillis();
-        log.info("writeBatch start >>> "+startTime);
-
-        preHandle(requestParam, data -> {
-            vocabuMongoRepository.insert(data);
-        });
-        long endTime = System.currentTimeMillis();
-        log.info("writeBatch end >>> "+endTime);
-        log.info("totally cost "+((endTime - startTime)/1000) +" s ");
-        return ResponseData.SUCCESS;
-    }
-
-    private void preHandle(Map<String,List<String>> requestParam, SynHandleData synHandleData){
+    private void preHandle(Map<String,List<String>> requestParam,TransferLanguage transferLanguage, SynHandleData synHandleData){
 
         List<String> params = requestParam.get("param");
         if(params == null && params.size() <= 0){
@@ -276,7 +287,7 @@ public class VocabuController {
         List<Future<Vocabu>> futures = new ArrayList<>();
         List<Future<Vocabu>> doneFutures = new ArrayList<>();
 
-        Iterable<String> iterable = cleaningWordData(params);
+        Iterable<String> iterable = cleaningWordData(params,transferLanguage.getFrom());
         iterable.forEach(word ->{
             Future<Vocabu> vocabuDtoFuture = asynVocabuService.executeGetVocabuDto(api,word, Language.EN,Language.ZH);
             futures.add(vocabuDtoFuture);
@@ -337,27 +348,20 @@ public class VocabuController {
      * @param source
      * @return
      */
-    private Iterable<String> cleaningWordData(List<String> source){
+    private Iterable<String> cleaningWordData(List<String> source,Language language){
         Set<String> res = new HashSet<>();
-        StringBuilder sb = new StringBuilder("[");
+        StringBuilder sb = new StringBuilder("");
         int count = 0;
         //英文最长单词45个字母 pneumonoultramicroscopicsilicovolcanoconiosis [肺尘病]
 //        String regexStr = "^[a-z]{1,45}$";
         for(String word:source){
-            String lowwer = word.trim().toLowerCase();
-            String replaceStr = lowwer.replaceAll("[^a-z|\\s]*","");
-            if(replaceStr.length()>0){
-                res.add(lowwer);
-            }else{
+            word = language.lowAndReplace(word);
+            if(!language.isValid(word)){
                 count++;
                 sb.append(word).append('\n');
+            }else{
+                res.add(word);
             }
-//            if(lowwer.matches(regexStr)){
-//                res.add(lowwer);
-//            }else{
-//                count++;
-//                sb.append(word).append(",");
-//            }
         }
 //        if(sb.toString().endsWith(",")){
 //            // 注意不能写成 sb.replace(len-1,len-1,"]") 头尾相等的话，会多添加一个"]"在","之前
