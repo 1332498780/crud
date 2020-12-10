@@ -1,0 +1,45 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /tfe
+#  ssl:
+#    key-store: ${JAVA_HOME}/jre/lib/security/cacerts
+#    key-password: changeit
+#    key-alias: eazichinese.com
+#    key-store-type: JKS
+spring:
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/testdb
+      auto-index-creation: true
+  resources:
+    static-locations: file:/opt/tfe/upload
+  mvc:
+    static-path-pattern: /static/**
+  servlet:
+    multipart:
+      max-file-size: 256MB # 单个文件大小限制
+      max-request-size: 512MB # 一个请求文件大小
+
+logging:
+  level:
+      dev: debug
+      org:
+        springframework:
+          data:
+            mongodb:
+              core: DEBUG
+  file:
+    name: ./logs/tfe.log
+    max-history: 30
+    max-size: 1MB
+baidu:
+  appid: 20201103000607261
+  securityKey: 26HE7Mq0AM_oITG01z_n
+
+custom-config:
+  thread:
+    core-size: 5
+    max-pool-size: 20
+    queue-capacity: 500
+    keep-alive-seconds: 60
