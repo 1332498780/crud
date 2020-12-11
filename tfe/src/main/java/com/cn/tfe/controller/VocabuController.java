@@ -289,7 +289,7 @@ public class VocabuController {
 
         Iterable<String> iterable = cleaningWordData(params,transferLanguage.getFrom());
         iterable.forEach(word ->{
-            Future<Vocabu> vocabuDtoFuture = asynVocabuService.executeGetVocabuDto(api,word, Language.EN,Language.ZH);
+            Future<Vocabu> vocabuDtoFuture = asynVocabuService.executeGetVocabuDto(api,word, transferLanguage);
             futures.add(vocabuDtoFuture);
         });
 

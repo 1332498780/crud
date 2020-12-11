@@ -8,6 +8,7 @@ class TfeApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println();
 	}
 
 }

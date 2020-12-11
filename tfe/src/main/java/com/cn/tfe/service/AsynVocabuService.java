@@ -1,5 +1,6 @@
 package com.cn.tfe.service;
 
+import com.cn.tfe.commons.TransferLanguage;
 import com.cn.tfe.controller.VocabuController;
 import com.cn.tfe.dto.VocabuDto;
 import com.cn.tfe.emums.Language;
@@ -36,12 +37,12 @@ public class AsynVocabuService {
     private static final Logger log = LoggerFactory.getLogger(AsynVocabuService.class);
 
     @Async("taskExecutor")
-    public Future<Vocabu> executeGetVocabuDto(TransApi api, String word, Language from , Language to){
+    public Future<Vocabu> executeGetVocabuDto(TransApi api, String word, TransferLanguage transferLanguage){
         log.info(Thread.currentThread().getName()+" get ready to execute "+"< "+word+" >");
-        JsonObject en2zhObj = sendRequest(api,word, from, to);
+        JsonObject en2zhObj = sendRequest(api,word, transferLanguage.getFrom(),transferLanguage.getTo());
 
         Vocabu.VocabuBuilder builder = Vocabu.builder().word(word);
-        CommonRes transRes = getCommonRes(api,word);
+        CommonRes transRes = getCommonRes(api,word,transferLanguage);
         builder.transRes(transRes);
         JsonElement dictElement = JsonParser.parseString(en2zhObj.getAsJsonPrimitive("dict").getAsString());
         if(dictElement.isJsonObject()){
@@ -52,8 +53,8 @@ public class AsynVocabuService {
                 JsonArray trGroup = edictElement.getAsJsonObject().getAsJsonArray("item")
                         .get(0).getAsJsonObject().getAsJsonArray("tr_group");
                 String eDict = trGroup.get(0).getAsJsonObject().getAsJsonArray("tr").get(0).getAsString();
-                List<CommonRes> exampleRes = getWordSentence(api, trGroup, word, "example");
-                List<CommonRes> similarRes = getWordSentence(api, trGroup, word, "similar_word");
+                List<CommonRes> exampleRes = getWordSentence(api, trGroup, word, "example",transferLanguage);
+                List<CommonRes> similarRes = getWordSentence(api, trGroup, word, "similar_word",transferLanguage);
                 builder.word(word)
                         .edict(eDict)
                         .similarRes(similarRes)
@@ -78,7 +79,7 @@ public class AsynVocabuService {
      * @param to
      * @return
      */
-    private JsonObject sendRequest(TransApi api, String query, Language from, Language to){
+    private JsonObject sendRequest(TransApi api, String query, Language from,Language to){
         String en2zhRes = api.getTransResult(query, from.toString(), to.toString());
         JsonElement element = JsonParser.parseString(en2zhRes);
         if(!element.isJsonObject()){
@@ -90,7 +91,7 @@ public class AsynVocabuService {
         return res.getAsJsonArray("trans_result").get(0).getAsJsonObject();
     }
 
-    private List<CommonRes> getWordSentence(TransApi api,JsonArray trGroup,String word,String key){
+    private List<CommonRes> getWordSentence(TransApi api,JsonArray trGroup,String word,String key,TransferLanguage transferLanguage){
         List<CommonRes> res = new ArrayList<>();
         Iterator<JsonElement> iterator = trGroup.iterator();
         String patternStr = "\\b"+word+"\\b";
@@ -104,7 +105,7 @@ public class AsynVocabuService {
                 while(childIterator.hasNext()){
                     String str = childIterator.next().getAsString();
                     if(pattern.matcher(str.toLowerCase()).find()){
-                        CommonRes commonRes = getCommonRes(api,str);
+                        CommonRes commonRes = getCommonRes(api,str,transferLanguage);
                         res.add(commonRes);
                     }
                 }
@@ -120,15 +121,15 @@ public class AsynVocabuService {
      * @param word 指定单词
      * @return
      */
-    private CommonRes getCommonRes(TransApi api,String word){
+    private CommonRes getCommonRes(TransApi api,String word,TransferLanguage transferLanguage){
         //请求接口获取释义
-        JsonObject en2zhObj = sendRequest(api,word,Language.EN,Language.ZH);
-        return getCommonRes(api,en2zhObj,word);
+        JsonObject en2zhObj = sendRequest(api,word,transferLanguage.getFrom(),transferLanguage.getTo());
+        return getCommonRes(api,en2zhObj,word,transferLanguage);
     }
 
-    private CommonRes getCommonRes(TransApi api,JsonObject en2zhObj,String word){
+    private CommonRes getCommonRes(TransApi api,JsonObject en2zhObj,String word,TransferLanguage transferLanguage){
         String dst = en2zhObj.get("dst").getAsString();
-        JsonObject zh2enObj = sendRequest(api,dst,Language.ZH,Language.EN);
+        JsonObject zh2enObj = sendRequest(api,dst,transferLanguage.getTo(),transferLanguage.getFrom());
         String phonetic = getPhonetic(dst);
         String dstTts = zh2enObj.get("dst_tts").getAsString();
         CommonRes commonRes = CommonRes.builder()
