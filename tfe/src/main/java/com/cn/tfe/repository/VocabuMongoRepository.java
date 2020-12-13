@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface VocabuMongoRepository extends MongoRepository<Vocabu,String>,CustomVocabuRepository {
 
-//    @Query("{word: $0,'transRes.dst': $1}")
+//    @Query(value="{ 'firstname' : ?0 }", fields="{ 'firstname' : 1, 'lastname' : 1}")
+////    List<Vocabu> findByTr(String firstname);
 
 }

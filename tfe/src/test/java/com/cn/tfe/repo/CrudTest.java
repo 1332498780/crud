@@ -1,7 +1,10 @@
 package com.cn.tfe.repo;
 
 
+import com.cn.tfe.entity.Vocabu;
+import com.cn.tfe.entity.VocabuTrans;
 import com.cn.tfe.repository.VocabuMongoRepository;
+import com.cn.tfe.repository.VocabuTransRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -9,6 +12,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,6 +25,9 @@ public class CrudTest {
 
     @Autowired
     VocabuMongoRepository vocabuMongoRepository;
+
+    @Autowired
+    VocabuTransRepository vocabuTransRepository;
 
     @Test
     public void testInsert(){
@@ -55,6 +65,19 @@ public class CrudTest {
 //        log.info(vo.toString());
 //        Vocabu newVo = vocabuMongoRepository.insert(vo);
 //        log.info("新:"+newVo.toString());
+    }
+
+    @Test
+    public void testTranslate(){
+//        List<String> lists = Arrays.asList(new String[]{"5fd45d6c98013e6cd4c3ccb8","5fd460b7c6b6ba04ca3af64d"});
+//        long res = vocabuMongoRepository.updateTranslate(lists);
+//        log.info(String.valueOf(res));
+    }
+
+    @Test
+    public void testTransInsert(){
+//        VocabuTrans vocabuTrans = VocabuTrans.builder().word("test").fromTo(13).build();
+//        vocabuTransRepository.insert(vocabuTrans);
     }
 
 }

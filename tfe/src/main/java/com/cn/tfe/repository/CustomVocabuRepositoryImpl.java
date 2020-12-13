@@ -2,6 +2,8 @@ package com.cn.tfe.repository;
 
 import com.cn.tfe.entity.Vocabu;
 import com.cn.tfe.util.ResponsePage;
+import com.mongodb.client.result.UpdateResult;
+import com.mongodb.internal.bulk.UpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -56,5 +58,23 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
 //        vocabu.setId(id);
 //        Update u = new Update();
 //        mongo.updateFirst()
+    }
+
+    @Override
+    public long updateTranslate(List<String> ids) {
+        Criteria criteria = Criteria.where("_id").in(ids).and("isTranslate").is(0);
+        Query query = new Query(criteria);
+        Update update = Update.update("isTranslate",1);
+        UpdateResult result = mongo.updateMulti(query,update,Vocabu.class);
+        return result.getModifiedCount();
+    }
+
+    @Override
+    public List<Vocabu> findTranslateBaseCount(int count) {
+        Criteria criteria = Criteria.where("isTranslate").is(0);
+        Query query = new Query(criteria).limit(count);
+        query.fields().include("_id").include("word");
+        List<Vocabu> vocabus =  mongo.find(query,Vocabu.class);
+        return vocabus;
     }
 }

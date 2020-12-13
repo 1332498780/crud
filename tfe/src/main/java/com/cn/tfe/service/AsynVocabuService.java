@@ -5,6 +5,7 @@ import com.cn.tfe.dto.VocabuDto;
 import com.cn.tfe.emums.Language;
 import com.cn.tfe.entity.CommonRes;
 import com.cn.tfe.entity.Vocabu;
+import com.cn.tfe.entity.VocabuTrans;
 import com.cn.tfe.exception.CustomException;
 import com.cn.tfe.util.baidu.TransApi;
 import com.google.gson.JsonArray;
@@ -68,7 +69,49 @@ public class AsynVocabuService {
         return new AsyncResult<>(builder.build());
     }
 
+    private String transferToOther(TransApi api, String word, Language to){
+        JsonObject en2OtherObj = sendRequest(api,word, Language.EN, to);
+        return en2OtherObj.getAsJsonPrimitive("dict").getAsString();
+    }
 
+    @Async("taskExecutor")
+    public Future<List<VocabuTrans>> executeGetVocabuTrans(TransApi api, Vocabu vocabu, Language[] transLanguages){
+        String word = vocabu.getWord();
+        log.info(Thread.currentThread().getName()+" get ready to transfer "+"< "+word+" > to "+transLanguages.toString());
+        List<VocabuTrans> vocabuTrans = new ArrayList<>(transLanguages.length);
+        for(Language lan:transLanguages){
+            VocabuTrans.VocabuTransBuilder builder = VocabuTrans.builder().word(word);
+
+            //单词翻译
+            String dst = transferToOther(api,word,lan);
+            builder.transRes(CommonRes.builder().dst(dst).build());
+            //例句翻译
+            List<CommonRes> examples = new ArrayList<>(vocabu.getExampleRes().size());
+            for(CommonRes comm:vocabu.getExampleRes()){
+                String exampleDst = transferToOther(api,comm.getWord(),lan);
+                CommonRes commonRes = CommonRes.builder().word(comm.getWord()).dst(exampleDst).build();
+                examples.add(commonRes);
+            }
+            if(!examples.isEmpty()){
+                builder.exampleRes(examples);
+            }
+            //句子翻译
+            List<CommonRes> similars = new ArrayList<>(vocabu.getSimilarRes().size());
+            for(CommonRes comm:vocabu.getSimilarRes()){
+                String similarDst = transferToOther(api,comm.getWord(),lan);
+                CommonRes commonRes = CommonRes.builder().word(comm.getWord()).dst(similarDst).build();
+                similars.add(commonRes);
+            }
+            if(!similars.isEmpty()){
+                builder.similarRes(similars);
+            }
+
+            builder.fromTo(Language.EN.num*10+lan.num);
+            vocabuTrans.add(builder.build());
+        }
+        log.info(Thread.currentThread().getName()+" has finished "+"< "+word+" > to "+transLanguages.toString());
+        return new AsyncResult<>(vocabuTrans);
+    }
 
     /***
      * 请求翻译接口，得到JsonObject对象

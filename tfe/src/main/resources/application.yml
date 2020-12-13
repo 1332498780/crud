@@ -43,3 +43,4 @@ custom-config:
     max-pool-size: 20
     queue-capacity: 500
     keep-alive-seconds: 60
+  trans-languages: JP,KOR

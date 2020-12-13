@@ -12,4 +12,8 @@ public interface CustomVocabuRepository {
     List<Vocabu> findByExampleWord(String word);
 
     void updateVocabu(String id,Vocabu vocabu);
+
+    long updateTranslate(List<String> ids);
+
+    List<Vocabu> findTranslateBaseCount(int count);
 }

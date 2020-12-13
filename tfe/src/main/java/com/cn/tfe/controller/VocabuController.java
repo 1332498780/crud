@@ -7,11 +7,13 @@ import com.cn.tfe.dto.VocabuDto;
 import com.cn.tfe.emums.Language;
 import com.cn.tfe.entity.CommonRes;
 import com.cn.tfe.entity.Vocabu;
+import com.cn.tfe.entity.VocabuTrans;
 import com.cn.tfe.exception.CustomException;
 import com.cn.tfe.filter.PassToken;
 import com.cn.tfe.filter.UserLoginToken;
 import com.cn.tfe.query.VocabuFilterParam;
 import com.cn.tfe.repository.VocabuMongoRepository;
+import com.cn.tfe.repository.VocabuTransRepository;
 import com.cn.tfe.service.AsynVocabuService;
 import com.cn.tfe.service.SynHandleData;
 import com.cn.tfe.util.RequestPageData;
@@ -39,6 +41,7 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value="/vocabu")
@@ -53,16 +56,22 @@ public class VocabuController {
     @Autowired
     VocabuMongoRepository vocabuMongoRepository;
 
+    @Autowired
+    VocabuTransRepository vocabuTransRepository;
+
     @Value("${baidu.appid}")
     private String appid;
 
     @Value("${baidu.securityKey}")
     private String securityKey;
 
+    @Value("${custom-config.trans-languages}")
+    private Language[] transLanguages;
+
     @PassToken
     @PostMapping("/page")
     public ResponseData<List<Vocabu>> getPageList(@RequestBody RequestPageData<VocabuFilterParam> requestPageData){
-        if(requestPageData.getData()==null){
+        if(requestPageData.getData()==null) {
             Page<Vocabu> pageData = vocabuMongoRepository.findAll(requestPageData.pgData());
             return ResponsePage.page(pageData);
         }
@@ -74,7 +83,7 @@ public class VocabuController {
 
     @PostMapping("/add")
     public ResponseData addVocabu(@RequestBody Vocabu vocabu){
-        vocabu.setWord(vocabu.getWord().toLowerCase());
+        vocabu.setWord(vocabu.getWord().toLowerCase().trim());
         Vocabu savedVocabu = vocabuMongoRepository.insert(vocabu);
         if(savedVocabu != null && savedVocabu.getId()!=null){
             return ResponseData.SUCCESS;
@@ -90,6 +99,67 @@ public class VocabuController {
             return ResponseData.SUCCESS;
         }
         throw new CustomException("删除单词失败");
+    }
+
+    @GetMapping("/translate/{count}")
+    public ResponseData translateVocabu(@PathVariable int count){
+        int finishedCount = 0;
+        if(count < 0){
+            throw new CustomException("翻译单词个数不能小于等于0！！");
+        }
+        List<Vocabu> vocabus = vocabuMongoRepository.findTranslateBaseCount(count);
+        if(vocabus.isEmpty()){
+            return ResponseData.of(0);
+        }
+        TransApi api = new TransApi(appid, securityKey);
+        List<VocabuTrans> vocabuTrans = new ArrayList<>(vocabus.size()*2);
+        List<Future<List<VocabuTrans>>> futures = new ArrayList<>(vocabus.size());
+        List<Future<List<VocabuTrans>>> doneFutures = new ArrayList<>(vocabus.size());
+
+        for(Vocabu vocabu:vocabus){
+            Future<List<VocabuTrans>> vocabuTransFuture = asynVocabuService.executeGetVocabuTrans(api,vocabu,transLanguages);
+            futures.add(vocabuTransFuture);
+        }
+
+        int loopCount = 0;
+        try {
+            while (true) {
+                loopCount++;
+                for (Future<List<VocabuTrans>> f : futures) {
+                    if (!doneFutures.contains(f) && f.isDone() && !f.isCancelled()) {
+                        doneFutures.add(f);
+                        try {
+                            vocabuTrans.addAll(f.get());
+                            if (vocabuTrans.size() >= 200) {
+                                int saveCount = saveAndUpdate(vocabuTrans);
+                                finishedCount += saveCount;
+                            }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                if(loopCount % 100 == 0)
+                    log.info("executor has "+loopCount+" looped!  < "+doneFutures.size()+"/"+futures.size()+" >");
+                if(doneFutures.size() == futures.size()){
+                    log.info("finished!");
+                    break;
+                }
+                Thread.sleep(1);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            //把剩余数据写完
+            if(vocabuTrans.size() > 0){
+                log.info("executor deal with remain data("+vocabuTrans.size()+") of list");
+                int saveCount = saveAndUpdate(vocabuTrans);
+                finishedCount += saveCount;
+            }
+        }
+        return ResponseData.of(finishedCount);
     }
 
     @GetMapping("/get/{id}")
@@ -238,6 +308,26 @@ public class VocabuController {
         return ResponseData.SUCCESS;
     }
 
+    /***
+     * 保存vocabuTrans, 更新vocabu状态，返回保存成功的数量
+     * @param vocabuTrans
+     * @return
+     */
+    private int saveAndUpdate(List<VocabuTrans> vocabuTrans){
+        log.info("executor has "+vocabuTrans.size()+" finished rows and get ready to write into db.");
+        List<VocabuTrans> savedVocabuTrans = vocabuTransRepository.saveAll(vocabuTrans);
+        if(savedVocabuTrans.size() != vocabuTrans.size()){
+            log.error("saved vocabuTrans [ "+savedVocabuTrans.size()+"/"+vocabuTrans.size()+" ]");
+        }
+        List<String> ids = savedVocabuTrans.stream().map(item -> item.getId()).collect(Collectors.toList());
+        long updateCount = vocabuMongoRepository.updateTranslate(ids);
+        log.info("updated "+updateCount+" vocabu");
+        if(ids.size() != updateCount){
+            log.error("update vocabu [ "+updateCount+"/"+ids.size()+" ]");
+        }
+        vocabuTrans.clear();
+        return savedVocabuTrans.size();
+    }
     private void preHandle(Map<String,List<String>> requestParam, SynHandleData synHandleData){
 
         List<String> params = requestParam.get("param");

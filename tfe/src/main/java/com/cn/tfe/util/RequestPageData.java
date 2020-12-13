@@ -1,5 +1,6 @@
 package com.cn.tfe.util;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 import org.apache.poi.ss.formula.functions.T;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Sort;
 
 @Data
 @ToString
+@Builder
 public class RequestPageData<T> {
 
     private int page;

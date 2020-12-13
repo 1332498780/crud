@@ -1,11 +1,13 @@
 package com.cn.tfe.entity;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -14,7 +16,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @ToString
 @Document(collection = "vocabulary")
 public class Vocabu {
@@ -50,4 +52,6 @@ public class Vocabu {
     @LastModifiedDate
     private Date lastModifyTime;
 
+    @Builder.Default()
+    private Integer isTranslate = 0;  //是否翻译成了其它语言
 }
