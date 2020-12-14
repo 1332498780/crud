@@ -46,12 +46,6 @@ public class Vocabu {
 
     private List<AdverLink> adverLinks;
 
-    @CreatedDate
-    private Date createTime;
-
-    @LastModifiedDate
-    private Date lastModifyTime;
-
     @Builder.Default()
     private Integer isTranslate = 0;  //是否翻译成了其它语言
 }

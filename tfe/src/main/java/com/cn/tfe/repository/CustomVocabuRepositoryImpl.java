@@ -61,8 +61,8 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
     }
 
     @Override
-    public long updateTranslate(List<String> ids) {
-        Criteria criteria = Criteria.where("_id").in(ids).and("isTranslate").is(0);
+    public long updateTranslate(String[] words) {
+        Criteria criteria = Criteria.where("word").in(words).and("isTranslate").is(0);
         Query query = new Query(criteria);
         Update update = Update.update("isTranslate",1);
         UpdateResult result = mongo.updateMulti(query,update,Vocabu.class);
@@ -73,7 +73,7 @@ public class CustomVocabuRepositoryImpl implements CustomVocabuRepository{
     public List<Vocabu> findTranslateBaseCount(int count) {
         Criteria criteria = Criteria.where("isTranslate").is(0);
         Query query = new Query(criteria).limit(count);
-        query.fields().include("_id").include("word");
+//        query.fields().include("_id").include("word");
         List<Vocabu> vocabus =  mongo.find(query,Vocabu.class);
         return vocabus;
     }

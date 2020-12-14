@@ -9,7 +9,12 @@ public enum Language {
     KOR("kor",4),
     SPA("spa",5),
     FRA("fra",6),
-    RU("ru",7);
+    RU("ru",7),
+    IT("it",8),
+    DE("de",9);
+
+
+
 
     public String val;
     public int num;

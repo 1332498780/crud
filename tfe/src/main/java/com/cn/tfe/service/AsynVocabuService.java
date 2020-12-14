@@ -71,13 +71,13 @@ public class AsynVocabuService {
 
     private String transferToOther(TransApi api, String word, Language to){
         JsonObject en2OtherObj = sendRequest(api,word, Language.EN, to);
-        return en2OtherObj.getAsJsonPrimitive("dict").getAsString();
+        return en2OtherObj.getAsJsonPrimitive("dst").getAsString();
     }
 
     @Async("taskExecutor")
     public Future<List<VocabuTrans>> executeGetVocabuTrans(TransApi api, Vocabu vocabu, Language[] transLanguages){
         String word = vocabu.getWord();
-        log.info(Thread.currentThread().getName()+" get ready to transfer "+"< "+word+" > to "+transLanguages.toString());
+        log.info(Thread.currentThread().getName()+" get ready to transfer "+"< "+word+" > to multi language.");
         List<VocabuTrans> vocabuTrans = new ArrayList<>(transLanguages.length);
         for(Language lan:transLanguages){
             VocabuTrans.VocabuTransBuilder builder = VocabuTrans.builder().word(word);
@@ -109,7 +109,7 @@ public class AsynVocabuService {
             builder.fromTo(Language.EN.num*10+lan.num);
             vocabuTrans.add(builder.build());
         }
-        log.info(Thread.currentThread().getName()+" has finished "+"< "+word+" > to "+transLanguages.toString());
+        log.info(Thread.currentThread().getName()+" has finished "+"< "+word+" > to multi language.");
         return new AsyncResult<>(vocabuTrans);
     }
 

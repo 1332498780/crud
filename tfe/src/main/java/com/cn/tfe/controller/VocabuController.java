@@ -319,11 +319,11 @@ public class VocabuController {
         if(savedVocabuTrans.size() != vocabuTrans.size()){
             log.error("saved vocabuTrans [ "+savedVocabuTrans.size()+"/"+vocabuTrans.size()+" ]");
         }
-        List<String> ids = savedVocabuTrans.stream().map(item -> item.getId()).collect(Collectors.toList());
-        long updateCount = vocabuMongoRepository.updateTranslate(ids);
+        Set<String> words = savedVocabuTrans.stream().map(item -> item.getWord()).collect(Collectors.toSet());
+        long updateCount = vocabuMongoRepository.updateTranslate(words.toArray(new String[words.size()]));
         log.info("updated "+updateCount+" vocabu");
-        if(ids.size() != updateCount){
-            log.error("update vocabu [ "+updateCount+"/"+ids.size()+" ]");
+        if(words.size() != updateCount){
+            log.error("update vocabu [ "+updateCount+"/"+words.size()+" ]");
         }
         vocabuTrans.clear();
         return savedVocabuTrans.size();

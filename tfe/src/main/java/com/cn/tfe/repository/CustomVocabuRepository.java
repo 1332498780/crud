@@ -13,7 +13,7 @@ public interface CustomVocabuRepository {
 
     void updateVocabu(String id,Vocabu vocabu);
 
-    long updateTranslate(List<String> ids);
+    long updateTranslate(String[] words);
 
     List<Vocabu> findTranslateBaseCount(int count);
 }

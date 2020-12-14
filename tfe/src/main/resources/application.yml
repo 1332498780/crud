@@ -34,8 +34,8 @@ logging:
     max-history: 30
     max-size: 1MB
 baidu:
-  appid: 20201103000607261
-  securityKey: 26HE7Mq0AM_oITG01z_n
+  appid: 20201203000636161
+  securityKey: bk_YnAqecTD5eJt64H3x
 
 custom-config:
   thread:
@@ -43,4 +43,4 @@ custom-config:
     max-pool-size: 20
     queue-capacity: 500
     keep-alive-seconds: 60
-  trans-languages: JP,KOR
+  trans-languages: SPA,IT,FRA,JP,DE,KOR,RU
