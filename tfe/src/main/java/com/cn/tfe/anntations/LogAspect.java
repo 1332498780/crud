@@ -1,15 +1,17 @@
 package com.cn.tfe.anntations;
 
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Aspect
-@Component
+//@Component
 @Slf4j
 public class LogAspect {
 
@@ -19,16 +21,27 @@ public class LogAspect {
 
 
     @Around("pointCut()")
-    public void aroundFunc(ProceedingJoinPoint proceedingJoinPoint){
+    public Object aroundFunc(ProceedingJoinPoint proceedingJoinPoint){
         long startMillis = System.currentTimeMillis();
+        Object object = null;
+        Map<String,Object> record = new HashMap<>();
         try {
-            proceedingJoinPoint.proceed();
+            object =  proceedingJoinPoint.proceed();
+            String className = proceedingJoinPoint.getTarget().getClass().getSimpleName();
+            String methodName = proceedingJoinPoint.getSignature().getName();
+            Object[] params = proceedingJoinPoint.getArgs();
+            record.put("className",className);
+            record.put("methodName",methodName);
+            record.put("requestParam",params);
+            record.put("result",object);
+            long endMillis = System.currentTimeMillis();
+            long costSeconds = (endMillis - startMillis)/1000;
+            record.put("costSeconds",costSeconds);
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
-        long endMillis = System.currentTimeMillis();
-        long costSeconds = (endMillis - startMillis)/1000;
-        log.info("执行耗时："+costSeconds);
+        log.info("执行情况:{}",record);
+        return object;
     }
 
 }
